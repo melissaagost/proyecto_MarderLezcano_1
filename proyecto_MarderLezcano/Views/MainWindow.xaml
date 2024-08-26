@@ -4,6 +4,15 @@
         xmlns:local="clr-namespace:proyecto_MarderLezcano.ViewModels"
         xmlns:helpers="clr-namespace:proyecto_MarderLezcano.Helpers"
         Title="Login" Height="300" Width="400">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Estilos/ButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Window.DataContext>
         <local:LoginViewModel/>
     </Window.DataContext>
