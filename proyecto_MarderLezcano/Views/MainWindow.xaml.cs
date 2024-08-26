@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace proyecto_MarderLezcano
+namespace proyecto_MarderLezcano.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
