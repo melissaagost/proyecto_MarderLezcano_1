@@ -1,35 +1,25 @@
 ﻿<Window x:Class="proyecto_MarderLezcano.Views.MainWindow"
- xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.ViewModels"
+        xmlns:helpers="clr-namespace:proyecto_MarderLezcano.Helpers"
         Title="Login" Height="300" Width="400">
     <Window.DataContext>
         <local:LoginViewModel/>
     </Window.DataContext>
     <Grid>
-        <TextBox Name="TBUsername" Width="200" Height="30"/>
-        <TextBlock Text="Usuario" IsHitTestVisible="False" 
-               Foreground="Gray" FontStyle="Italic"
-               VerticalAlignment="Center" 
-               HorizontalAlignment="Left"
-               Margin="21,0,0,0">
-            <TextBlock.Style>
-                <Style TargetType="TextBlock">
-                    <Setter Property="Visibility" Value="Visible"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=UsernameTextBox}" Value="">
-                            <Setter Property="Visibility" Value="Visible"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Text, ElementName=UsernameTextBox}" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Visible"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Text, ElementName=UsernameTextBox}" Value=" ">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        <Label x:Name="LLogin" Content="Inicie Sesión" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft YaHei UI Light"/>
+        <Label x:Name="LLogin" Content="Inicie Sesión" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft YaHei UI Light"/>
+        <Label x:Name="LUsername" Content="Usuario" HorizontalAlignment="Left" Margin="24,94,0,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="LPassword" Content="Contraseña" HorizontalAlignment="Left" Margin="24,142,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft JhengHei UI Light" FontWeight="Bold"/>
+
+        <!-- TextBox para el nombre de usuario con binding -->
+        <TextBox x:Name="TBUsername" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="146,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Microsoft YaHei UI Light" FontSize="16"/>
+
+        <!-- PasswordBox con binding usando la propiedad adjunta -->
+        <PasswordBox x:Name="TBPassword" helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay}" helpers:PasswordBoxHelper.BindPassword="True" HorizontalAlignment="Left" Margin="146,142,0,0" VerticalAlignment="Top" Width="120" FontFamily="Microsoft JhengHei UI Light" FontSize="16"/>
+
+        <!-- Botón con binding al comando de inicio de sesión -->
+        <Button x:Name="BLogin" Content="Iniciar Sesión" Command="{Binding LoginCommand}" HorizontalAlignment="Center" Margin="0,203,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft New Tai Lue" Background="#FFA9D65E"/>
     </Grid>
 </Window>
+

@@ -10,7 +10,7 @@ using proyecto_MarderLezcano.Commands;
 
 namespace proyecto_MarderLezcano.ViewModels
 {
-    class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : INotifyPropertyChanged
     {
         private string _username;
         private string _password;
@@ -44,15 +44,14 @@ namespace proyecto_MarderLezcano.ViewModels
 
         private void Login()
         {
-            // Aquí iría la lógica de autenticación, como verificar el usuario y contraseña
+            // Aquí iría la lógica de autenticación, por ejemplo:
             if (Username == "admin" && Password == "password")
             {
                 // Autenticación exitosa
-                // Por ejemplo, abrir la ventana principal de la aplicación
             }
             else
             {
-                // Mostrar mensaje de error
+                // Manejo de error de autenticación
             }
         }
 
