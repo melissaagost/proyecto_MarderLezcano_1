@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\pexels-shvetsa-3683041-Photoroom.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Estilos\" />
     <Folder Include="Helpers\" />
