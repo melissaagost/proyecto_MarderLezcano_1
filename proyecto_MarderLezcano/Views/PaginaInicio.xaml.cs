@@ -17,9 +17,9 @@ namespace proyecto_MarderLezcano.Views
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class PaginaInicio : Window
+    public partial class Window1 : Window
     {
-        public PaginaInicio()
+        public Window1()
         {
             InitializeComponent();
         }

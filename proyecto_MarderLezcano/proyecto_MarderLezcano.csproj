@@ -13,7 +13,6 @@
     <Folder Include="Estilos\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
