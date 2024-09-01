@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_MarderLezcano.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,19 +16,14 @@ using System.Windows.Shapes;
 namespace proyecto_MarderLezcano.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Lógica de interacción para FormularioInicioSesion.xaml
     /// </summary>
-    public partial class PaginaInicio : Window
+    public partial class FormularioInicioSesion : Page
     {
-        public PaginaInicio()
+        public FormularioInicioSesion()
         {
             InitializeComponent();
-            
-        }
-        // Método para cambiar la vista en el Frame
-        public void NavigateTo(object page)
-        {
-            MainFrame.Navigate(page);
+            DataContext = new FormularioInicioSesionVM();
         }
     }
 }
