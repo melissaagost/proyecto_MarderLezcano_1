@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Estilos\" />
-    <Folder Include="Models\" />
     <Folder Include="Fuentes\" />
     <Folder Include="Imagenes\" />
     <Folder Include="Utilidades\" />

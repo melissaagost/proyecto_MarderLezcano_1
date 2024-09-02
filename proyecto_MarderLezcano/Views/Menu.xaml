@@ -4,31 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views"
-        mc:Ignorable="d"
-        Title="Window1" 
-        Height="600" 
-        Width="850"
-        AllowsTransparency = "true"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Background="Transparent"
-        >
-        
+        Title="Menu Principal" Height="450" Width="800">
+
+    <!-- Importa el ResourceDictionary aquí -->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Aquí referenciamos el archivo Menu.xaml -->
+                <ResourceDictionary Source="/Estilos/Menu.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid>
-       <!-- // window border // -->
-        <Border Background="#212529"
-                CornerRadius="20"/>
+        <!-- Definimos dos columnas: una fija de 200px para el menú y otra que ocupa el resto -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- Columna para el menú lateral -->
+            <ColumnDefinition Width="*"/>
+            <!-- Columna para el área principal -->
+        </Grid.ColumnDefinitions>
 
-        <Grid>
-            <!--//Base grid//-->
+        <!-- Menú lateral -->
+        <StackPanel Background="#2C2F33" Grid.Column="0" VerticalAlignment="Stretch">
+            <ItemsControl ItemsSource="{Binding MenuItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Name}" 
+                                Command="{Binding DataContext.ChangeViewCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                CommandParameter="{Binding ViewModelType}"
+                                Style="{StaticResource MenuButtonStyle}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="228" />
-                <ColumnDefinition Width="622" />
-            </Grid.ColumnDefinitions>
-
-        </Grid>
-
+        <!-- Área principal para cargar vistas -->
+        <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10"/>
     </Grid>
-    
+
 </Window>
+
