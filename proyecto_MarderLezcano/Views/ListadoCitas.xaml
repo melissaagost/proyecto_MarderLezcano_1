@@ -12,6 +12,18 @@
         </Grid.Background>
         <Rectangle x:Name="RAgendarCita" HorizontalAlignment="Left" Height="352" Margin="27,0,0,0" VerticalAlignment="Center" Width="373" Fill="#FFE8E5D3"/>
         <TextBlock x:Name="TBAgendarCita" HorizontalAlignment="Left" Margin="45,59,0,0" TextWrapping="Wrap" Text="Programe una nueva cita" VerticalAlignment="Top" Background="#FF60A67C" FontFamily="Verdana" FontWeight="Bold" FontSize="16" Foreground="#FFFFFDF0" Padding="5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,100,0,0" TextWrapping="Wrap" Text="Ingrese datos personales del paciente" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBNombre" HorizontalAlignment="Left" Margin="45,121,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBox x:Name="TBNombre_Copy" HorizontalAlignment="Left" Margin="145,121,0,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBox x:Name="TBNombre_Copy1" HorizontalAlignment="Left" Margin="253,121,0,0" TextWrapping="Wrap" Text="DNI" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBox x:Name="TBNombre_Copy2" HorizontalAlignment="Left" Margin="45,148,0,0" TextWrapping="Wrap" Text="Teléfono" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBox x:Name="TBNombre_Copy3" HorizontalAlignment="Left" Margin="145,148,0,0" TextWrapping="Wrap" Text="Dirección" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,175,0,0" TextWrapping="Wrap" Text="Datos clínicos" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBNombre_Copy4" HorizontalAlignment="Left" Margin="45,201,0,0" TextWrapping="Wrap" Text="Peso" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBox x:Name="TBNombre_Copy5" HorizontalAlignment="Left" Margin="145,201,0,0" TextWrapping="Wrap" Text="Edad" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
+        <TextBox x:Name="TBNombre_Copy6" HorizontalAlignment="Left" Margin="45,229,0,0" TextWrapping="Wrap" Text="Motivo de la consulta..." VerticalAlignment="Top" Width="299" Height="47" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,281,0,0" TextWrapping="Wrap" Text="Horario y lugar.." VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,322,0,0" TextWrapping="Wrap" Text="Seleccione el profesional a cargo" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
