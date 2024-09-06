@@ -1,4 +1,7 @@
-﻿using System;
+﻿using proyecto_MarderLezcano.ViewModels;
+using System.Windows.Controls;
+using System.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using proyecto_MarderLezcano.ViewModels;
+
 
 namespace proyecto_MarderLezcano.Views
 {
@@ -22,10 +27,11 @@ namespace proyecto_MarderLezcano.Views
         public PaginaInicio()
         {
             InitializeComponent();
-            
+            DataContext = new PaginaInicioVM(); // Asegúrate de que el DataContext esté configurado
+
         }
         // Método para cambiar la vista en el Frame
-        public void NavigateTo(object page)
+        public void NavigateTo(Page page)
         {
             MainFrame.Navigate(page);
         }
