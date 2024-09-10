@@ -23,5 +23,15 @@ namespace proyecto_MarderLezcano.Views
         {
             InitializeComponent();
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

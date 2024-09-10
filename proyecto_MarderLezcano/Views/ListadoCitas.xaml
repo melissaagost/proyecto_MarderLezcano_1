@@ -5,25 +5,216 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views"
         mc:Ignorable="d"
-        Title="Citas programadas" Height="450" Width="800">
+        Title="Citas programadas"
+        Width="1200" Height="650"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" 
+        WindowStyle="None">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Views/Tu salud, nuestra prioridad(4).png"/>
+            <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/fondobase.png" />
         </Grid.Background>
-        <Rectangle x:Name="RAgendarCita" HorizontalAlignment="Left" Height="352" Margin="27,0,0,0" VerticalAlignment="Center" Width="373" Fill="#FFE8E5D3"/>
-        <TextBlock x:Name="TBAgendarCita" HorizontalAlignment="Left" Margin="45,59,0,0" TextWrapping="Wrap" Text="Programe una nueva cita" VerticalAlignment="Top" Background="#FF60A67C" FontFamily="Verdana" FontWeight="Bold" FontSize="16" Foreground="#FFFFFDF0" Padding="5"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,100,0,0" TextWrapping="Wrap" Text="Ingrese datos personales del paciente" VerticalAlignment="Top"/>
-        <TextBox x:Name="TBNombre" HorizontalAlignment="Left" Margin="45,121,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBox x:Name="TBNombre_Copy" HorizontalAlignment="Left" Margin="145,121,0,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBox x:Name="TBNombre_Copy1" HorizontalAlignment="Left" Margin="253,121,0,0" TextWrapping="Wrap" Text="DNI" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBox x:Name="TBNombre_Copy2" HorizontalAlignment="Left" Margin="45,148,0,0" TextWrapping="Wrap" Text="Teléfono" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBox x:Name="TBNombre_Copy3" HorizontalAlignment="Left" Margin="145,148,0,0" TextWrapping="Wrap" Text="Dirección" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,175,0,0" TextWrapping="Wrap" Text="Datos clínicos" VerticalAlignment="Top"/>
-        <TextBox x:Name="TBNombre_Copy4" HorizontalAlignment="Left" Margin="45,201,0,0" TextWrapping="Wrap" Text="Peso" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBox x:Name="TBNombre_Copy5" HorizontalAlignment="Left" Margin="145,201,0,0" TextWrapping="Wrap" Text="Edad" VerticalAlignment="Top" Width="91" Height="16" FontSize="10"/>
-        <TextBox x:Name="TBNombre_Copy6" HorizontalAlignment="Left" Margin="45,229,0,0" TextWrapping="Wrap" Text="Motivo de la consulta..." VerticalAlignment="Top" Width="299" Height="47" FontSize="10"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,281,0,0" TextWrapping="Wrap" Text="Horario y lugar.." VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,322,0,0" TextWrapping="Wrap" Text="Seleccione el profesional a cargo" VerticalAlignment="Top"/>
+
+        <!--cuadro 1-->
+        <Border Background="#fffdf0" 
+                CornerRadius="15" 
+                Padding="20" 
+                BorderThickness="1"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Width="550" Height="550" Margin="39,0,0,0">
+
+            <Canvas>
+                <!--titulo-->
+                <Border Background="#60a67c" CornerRadius="10" Height="31" Width="343">
+                    <TextBlock Text=" Programar una nueva cita "
+                               FontFamily="Georgia"
+                               FontSize="25" 
+                               FontWeight="Bold" 
+                               Foreground="#fffdf0" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Border>
+
+                <!--datos del paciente-->
+                <TextBlock Text="Datos personales del paciente" 
+                           FontFamily="Verdana"
+                           FontSize="18" 
+                           HorizontalAlignment="Center" Canvas.Top="49" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Center" Canvas.Top="76" VerticalAlignment="Center"
+                         x:Name="NombreTB"
+                         Text="Nombre/s"
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="29" Width="135"/>
+                <TextBox HorizontalAlignment="Left" Canvas.Top="76" VerticalAlignment="Center"
+                         x:Name="ApellidoTB"
+                         Text="Apellido/s"
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="29" Width="135" Canvas.Left="154"/>
+                <TextBox HorizontalAlignment="Left" Canvas.Top="76" VerticalAlignment="Center"
+                         x:Name="DNITB"
+                         Text="DNI"
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="29" Width="135" Canvas.Left="309"/>
+                <TextBox HorizontalAlignment="Left" Canvas.Top="119" VerticalAlignment="Top"
+                         x:Name="TelefonoTB"
+                         Text="Teléfono"
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="29" Width="135"/>
+                <TextBox HorizontalAlignment="Left" Canvas.Top="119" VerticalAlignment="Center"
+                         x:Name="EdadTB"
+                         Text="Edad"
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="29" Width="135" Canvas.Left="154"/>
+                <!--hora y lugar-->
+                <TextBlock Text="Fecha y horario" 
+                           FontFamily="Verdana" 
+                           FontSize="18" 
+                           HorizontalAlignment="Left" Canvas.Top="167" VerticalAlignment="Center" Canvas.Left="-1"/>
+                <DatePicker HorizontalAlignment="Left" Canvas.Top="194" VerticalAlignment="Top" 
+                            Height="36" Width="174"
+                            FontSize="15"
+                            FontFamily="Verdana"
+                            Padding="5"
+                            Foreground="Gray"/>
+                <TextBox HorizontalAlignment="Left" Canvas.Top="194" VerticalAlignment="Top"
+                         x:Name="HoraTB"
+                         Text="Hora"
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="29" Width="136" Canvas.Left="186"/>
+                <TextBox HorizontalAlignment="Left" Canvas.Top="240" VerticalAlignment="Top"
+                         x:Name="MotivoTB"
+                         Text="Motivo de la consulta..."
+                         FontFamily="Verdana" 
+                         Foreground="Gray"
+                         FontSize="15"
+                         Padding="5" Height="64" Width="485" Canvas.Left="-1"/>
+                <!--profesional a cargo-->
+                <TextBlock Text="Profesional a cargo" 
+                           FontFamily="Verdana" 
+                           FontSize="18" 
+                           HorizontalAlignment="Center" Canvas.Top="309" VerticalAlignment="Center" Canvas.Left="-1"/>
+
+                <ListBox Canvas.Top="336" Height="48" Width="161" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <!--botnes agendar/cancelar-->
+                <Button Content="Agendar"
+                        Width="194" Height="50" 
+                        Canvas.Left="48" Canvas.Top="432"
+                        FontSize="25"
+                        FontFamily="Verdana"
+                        Background="#60a67c"
+                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="20" 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Content="Cancelar"
+                        Width="193" Height="50" 
+                        Canvas.Right="48" Canvas.Top="432"
+                        FontSize="25"
+                        FontFamily="Verdana"
+                        Background="#ff5757"
+                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="20" 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+
+            </Canvas>
+        </Border>
+
+        <Border Background="#fffdf0" 
+                CornerRadius="15" 
+                Padding="20" 
+                BorderThickness="1"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Width="550" Height="550" Margin="622,0,0,0">
+
+            <!-- Usa un contenedor para tener múltiples elementos dentro del Border -->
+            <Grid>
+
+                <Border Background="#60a67c" CornerRadius="10" Height="31" Margin="0,0,278,477">
+                    <TextBlock Text="Citas registradas"
+                               FontFamily="Georgia"
+                               FontSize="25" 
+                               FontWeight="Bold" 
+                               Foreground="#fffdf0" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Border>
+
+
+                <TabControl Margin="0,45,0,10">
+
+                    <!--citas-->
+                    <TabItem x:Name="TIProgramadas" Header="Programadas"
+                     FontFamily="Verdana"
+                     FontSize="12"
+                     Background="#60a67c">
+                        <Grid Background="#FFE5E5E5">
+                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=20}" 
+                              Background="#FFFFFDF0"/>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="TIFinalizadas" Header="Finalizadas"
+                     FontFamily="Verdana"
+                     FontSize="12"
+                     Background="#9fa7ef">
+
+                        <Grid Background="#FFE5E5E5">
+                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=20}"
+                              Background="#FFFFFDF0"/>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="TICanceladas" Header="Canceladas"
+                     FontFamily="Verdana"
+                     FontSize="12"
+                     Background="#FFF18282">
+                        <Grid Background="#FFE5E5E5">
+                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=20}"
+                              Background="#FFFFFDF0" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="4"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Border>
+
 
     </Grid>
 </Window>
