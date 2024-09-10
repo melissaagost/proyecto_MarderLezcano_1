@@ -31,7 +31,9 @@ namespace proyecto_MarderLezcano.Views
         // Método para cambiar la vista en el Frame
         public void NavigateTo(Page page)
         {
-            MainFrame.Navigate(page);
+            //MainFrame.Navigate(page);
+            MainFrame.NavigationService.Navigate(page);
+
         }
         private void MinimizeWindow(object sender, RoutedEventArgs e)
         {
