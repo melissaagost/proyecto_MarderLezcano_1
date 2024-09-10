@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views"
         mc:Ignorable="d"
-        Title="MediLink" Height="450" Width="800">
+        Title="MediLink"  
+        Width="1200" 
+        Height="650"
+        >
 
     <Grid>
-        <Image Source="C:\Users\manum\OneDrive\Escritorio\proyecto_taller2\proyecto_MarderLezcano\assets\imagenes\fondo_inicio_sesion.png" 
-           Stretch="Fill" 
-           HorizontalAlignment="Stretch" 
-           VerticalAlignment="Stretch" 
-        />
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/formulario_inicio.png" />
+        </Grid.Background>
+        <!-- <Image Source="pack://application:,,,/assets/imagenes/formulario_inicio.png" Stretch="Fill" Grid.RowSpan="2" />-->
+
         <!-- Contenedor rectangular con bordes redondeados -->
         <!-- Contenedor rectangular con bordes redondeados -->
         <Border Background="#fffdf0" 

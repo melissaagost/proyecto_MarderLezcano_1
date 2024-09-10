@@ -1,12 +1,12 @@
 ﻿using System.Windows.Input;
-using proyecto_MarderLezcano.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using proyecto_MarderLezcano.Commands;
 using proyecto_MarderLezcano.Views;
+
 
 
 namespace proyecto_MarderLezcano.ViewModels
@@ -14,8 +14,8 @@ namespace proyecto_MarderLezcano.ViewModels
     public class FormularioInicioSesionVM : BaseViewModel
     {
         // Aquí puedes agregar propiedades y comandos relacionados con el formulario de inicio de sesión.
-        public ICommand IngresarCommand { get; }
-        public ICommand EditarContrasenaCommand { get; }
+        public RelayCommand IngresarCommand { get; }
+        public RelayCommand EditarContrasenaCommand { get; }
 
         public FormularioInicioSesionVM()
         {

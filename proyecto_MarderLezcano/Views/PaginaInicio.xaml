@@ -4,33 +4,42 @@
         xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views"
         mc:Ignorable="d"
-        Title="MediLink" Height="450" Width="800"
-        WindowState="Maximized" 
-        WindowStyle="None"
-        ResizeMode="NoResize">
+        Title="MediLink" 
+        Width="1200" Height="650"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" 
+        WindowStyle="None">
+
     <Window.DataContext>
         <!-- Enlaza la vista con su ViewModel correspondiente -->
         <vm:PaginaInicioVM />
     </Window.DataContext>
     <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/inicio.png" />
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="315*"/>
+            <RowDefinition Height="269*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2" />
+
         <!-- Imagen de fondo -->
-        <Image Source="C:\Users\manum\OneDrive\Escritorio\proyecto_taller2\proyecto_MarderLezcano\assets\imagenes\fondo.png" 
-               Stretch="Fill" 
-               HorizontalAlignment="Stretch" 
-               VerticalAlignment="Stretch" 
-        />
+        <!--<Image Source="pack://application:,,,/assets/imagenes/inicio.png" Stretch="Fill" Grid.RowSpan="2" />-->
+
         <TextBlock 
             FontFamily="Georgia" 
-            FontSize="50" 
+            FontSize="70" 
             FontWeight="Bold" 
             Foreground="#fffdf0"
             HorizontalAlignment="Left"  
             TextAlignment="Center"
-            Margin="312,26,0,268" 
-            Width="478">
+            Margin="412,32,0,293" 
+            Width="833" Grid.RowSpan="2">
             Tu salud, nuestra
             <LineBreak />
              prioridad
@@ -38,31 +47,31 @@
         <!-- Subtítulo -->
         <TextBlock 
             FontFamily="Verdana" 
-            FontSize="16" 
+            FontSize="20" 
             Foreground="#fffdf0" 
             HorizontalAlignment="Left" 
-            Margin="312,154,0,214" 
-            Width="509"> 
+            Margin="527,223,0,82" 
+            Width="738"> 
             La solución integral para la gestión de salud y profecionales.
         </TextBlock>
 
         <TextBlock 
             FontFamily="Verdana" 
-            FontSize="15" 
+            FontSize="20" 
             Foreground="#224d33" 
             HorizontalAlignment="Left" 
             FontWeight="Bold"
-            Margin="421,285,0,83" 
-            Width="509"> 
+            Margin="640,58,0,184" 
+            Width="510" Grid.Row="1"> 
             Agendar un turno nunca fue tan fácil.
         </TextBlock>
         <TextBlock 
             FontFamily="Verdana" 
-            FontSize="12" 
+            FontSize="16" 
             Foreground="#224d33" 
             HorizontalAlignment="Left" 
-            Margin="421,307,0,61" 
-            Width="484">
+            Margin="640,94,0,108" 
+            Width="502" Grid.Row="1">
             Con solo unos pocos clics, selecciona la especialidad y el 
             <LineBreak />
             profesional que necesitas. La disponibilidad se actualiza en 
@@ -72,21 +81,21 @@
 
         <TextBlock 
             FontFamily="Verdana" 
-            FontSize="15" 
+            FontSize="20" 
             Foreground="#224d33" 
             HorizontalAlignment="Left" 
             FontWeight="Bold"
-            Margin="216,372,0,46" 
-            Width="509"> 
+            Margin="327,181,0,55" 
+            Width="627" Grid.Row="1"> 
             Toda tu información, organizada de manera intuitiva.
         </TextBlock>
         <TextBlock 
             FontFamily="Verdana" 
-            FontSize="12" 
+            FontSize="16" 
             Foreground="#224d33" 
             HorizontalAlignment="Left" 
-            Margin="216,394,0,-26" 
-            Width="484">
+            Margin="328,220,0,-44" 
+            Width="568" Grid.Row="1">
             Accede rápidamente a tus citas, historial médico y recordatorios 
             <LineBreak />
             desde un panel de control diseñado para facilitar la navegación. 
@@ -95,31 +104,53 @@
         </TextBlock>
 
         <Button Content="INICIAR SESION" 
-                Width="150" 
-                Height="49" 
-                VerticalAlignment="Top" 
-                HorizontalAlignment="Left"
-                Command="{Binding IniciarSesionCommand}" 
-                Margin="476,195,0,0"
-                Background="#fffdf0"  
-                Foreground="#407053"
-                FontSize="13" 
-                FontWeight="Bold"
-                FontFamily="Verdana"
-                Padding="10,5"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                CornerRadius="8"
-                                Padding="{TemplateBinding Padding}">
-                        <ContentPresenter HorizontalAlignment="Center" 
-                                              VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
+            Width="250" 
+            Height="59" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left"
+            Command="{Binding IniciarSesionCommand}" 
+            Margin="704,274,0,0"
+            Background="#fffdf0"  
+            Foreground="#407053"
+            FontSize="19" 
+            FontWeight="Bold"
+            FontFamily="Verdana"
+            Padding="10,5"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+           >
         </Button>
+        <!-- Contenedor para los botones de cerrar y minimizar -->
+        <StackPanel Orientation="Horizontal" 
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Top" 
+            Margin="8,8">
+
+            <!-- Botón de minimizar -->
+
+            <!-- Botón de cerrar -->
+            <Button Content="-" 
+            Width="30" 
+            Height="30" 
+            FontSize="20"
+            Command="{Binding MinimizeCommand}"
+            Background="#fffdf0" 
+            Foreground="#407053"
+            FontWeight="Bold" 
+            BorderBrush="Transparent" />
+
+            <Button Content="X" 
+            Width="30" 
+            Height="30" 
+            FontSize="16"
+            Command="{Binding CloseCommand}"
+            Background="#fffdf0" 
+            Foreground="#407053"
+            FontWeight="Bold" 
+            BorderBrush="Transparent"
+            Margin="10,0,0,0" RenderTransformOrigin="0.48,-5.953" />
+        </StackPanel>
     </Grid>
 </Window>
