@@ -15,6 +15,37 @@
             <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/fondobase.png" />
         </Grid.Background>
 
+        <!--botones de cerrar / minimizar-->
+        <StackPanel Orientation="Horizontal" 
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Top" 
+            Margin="8,8">
+
+            <!-- Botón de minimizar -->
+
+            <!-- Botón de cerrar -->
+            <Button Content="-" 
+            Width="30" 
+            Height="30" 
+            FontSize="20"
+            Command="{Binding MinimizeCommand}"
+            Background="#fffdf0" 
+            Foreground="#407053"
+            FontWeight="Bold" 
+            BorderBrush="Transparent" />
+
+            <Button Content="X" 
+            Width="30" 
+            Height="30" 
+            FontSize="16"
+            Command="{Binding CloseCommand}"
+            Background="#fffdf0" 
+            Foreground="#407053"
+            FontWeight="Bold" 
+            BorderBrush="Transparent"
+            Margin="10,0,0,0" RenderTransformOrigin="0.48,-5.953" />
+        </StackPanel>
+
         <!--cuadro 1-->
         <Border Background="#fffdf0" 
                 CornerRadius="15" 
@@ -105,18 +136,43 @@
                 <TextBlock Text="Profesional a cargo" 
                            FontFamily="Verdana" 
                            FontSize="18" 
-                           HorizontalAlignment="Center" Canvas.Top="309" VerticalAlignment="Center" Canvas.Left="-1"/>
+                           HorizontalAlignment="Left" Canvas.Top="389" VerticalAlignment="Top"/>
 
-                <ListBox Canvas.Top="336" Height="48" Width="161" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <ListBox Canvas.Top="389" Height="39" Width="275" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="182"/>
 
+                <!--es menor de edad-->
+                <TextBlock Text="¿El paciente es menor de edad?"
+               FontFamily="Verdana"
+               FontSize="18" 
+               HorizontalAlignment="Left" Canvas.Top="317" VerticalAlignment="Top" Canvas.Left="-1"/>
+                <Label Content="Sí" Canvas.Top="314"
+           FontFamily="Verdana"
+           FontSize="15" Canvas.Left="298" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Canvas.Left="328" Canvas.Top="321"/>
+
+                <Label Content="No" 
+           Canvas.Left="361" Canvas.Top="314"
+           FontFamily="Verdana"
+           FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <RadioButton Canvas.Left="402" 
+             Canvas.Top="321" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <TextBox HorizontalAlignment="Center" Canvas.Top="345" VerticalAlignment="Top"
+         x:Name="TitularTB"
+         Text="Titular del paciente"
+         FontFamily="Verdana" 
+         Foreground="Gray"
+         FontSize="15"
+         Padding="5" Height="29" Width="288"/>
                 <!--botnes agendar/cancelar-->
-                <Button Content="Agendar"
+                <Button x:Name="BAgendar" Content="Agendar"
                         Width="194" Height="50" 
-                        Canvas.Left="48" Canvas.Top="432"
+                        Canvas.Left="48" Canvas.Top="448"
                         FontSize="25"
-                        FontFamily="Verdana"
+                        FontFamily="Georgia"
+                        FontWeight="bold"
                         Background="#60a67c"
-                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        Foreground="#fffdf0" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -130,13 +186,14 @@
                     </Button.Template>
                 </Button>
 
-                <Button Content="Cancelar"
+                <Button x:Name="BCancelar1" Content="Cancelar"
                         Width="193" Height="50" 
-                        Canvas.Right="48" Canvas.Top="432"
+                        Canvas.Right="48" Canvas.Top="448"
                         FontSize="25"
-                        FontFamily="Verdana"
+                        FontFamily="georgia"
+                        FontWeight="Bold"
                         Background="#ff5757"
-                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="264">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -156,7 +213,7 @@
             </Canvas>
         </Border>
 
-        <Border Background="#fffdf0" 
+        <Border x:Name="BCancelar" Background="#fffdf0" 
                 CornerRadius="15" 
                 Padding="20" 
                 BorderThickness="1"
@@ -179,12 +236,11 @@
 
 
                 <TabControl Margin="0,45,0,10">
-
                     <!--citas-->
                     <TabItem x:Name="TIProgramadas" Header="Programadas"
-                     FontFamily="Verdana"
-                     FontSize="12"
-                     Background="#60a67c">
+                             FontFamily="Verdana"
+                             FontSize="12"
+                             Background="#60a67c">
                         <Grid Background="#FFE5E5E5">
                             <DataGrid d:ItemsSource="{d:SampleData ItemCount=20}" 
                               Background="#FFFFFDF0"/>
@@ -192,22 +248,23 @@
                     </TabItem>
 
                     <TabItem x:Name="TIFinalizadas" Header="Finalizadas"
-                     FontFamily="Verdana"
-                     FontSize="12"
-                     Background="#9fa7ef">
+                             FontFamily="Verdana"
+                             FontSize="12"
+                             Background="#9fa7ef">
 
                         <Grid Background="#FFE5E5E5">
-                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=20}"
-                              Background="#FFFFFDF0"/>
+                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=10}"
+                              Background="#FFFFFDF0" Grid.ColumnSpan="2"/>
                         </Grid>
                     </TabItem>
 
                     <TabItem x:Name="TICanceladas" Header="Canceladas"
-                     FontFamily="Verdana"
-                     FontSize="12"
-                     Background="#FFF18282">
+                             FontFamily="Verdana"
+                             FontSize="12"
+                             Background="#FFF18282">
+
                         <Grid Background="#FFE5E5E5">
-                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=20}"
+                            <DataGrid d:ItemsSource="{d:SampleData ItemCount=15}"
                               Background="#FFFFFDF0" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="4"/>
                         </Grid>
                     </TabItem>

@@ -17,17 +17,12 @@
 
   <ItemGroup>
     <None Remove="Views\pexels-shvetsa-3683041-Photoroom.png" />
-    <None Remove="Views\Tu salud, nuestra prioridad%284%29.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Fuentes\" />
     <Folder Include="Helpers\" />
     <Folder Include="Utilidades\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Views\Tu salud, nuestra prioridad(4).png" />
   </ItemGroup>
 
 </Project>
