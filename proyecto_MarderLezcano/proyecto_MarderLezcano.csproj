@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="assets\imagenes\fondobase.png" />
+    <None Remove="assets\imagenes\formulario_inicio.png" />
+    <None Remove="assets\imagenes\inicio.png" />
     <None Remove="Views\pexels-shvetsa-3683041-Photoroom.png" />
   </ItemGroup>
 
@@ -23,6 +26,12 @@
     <Folder Include="Fuentes\" />
     <Folder Include="Helpers\" />
     <Folder Include="Utilidades\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\imagenes\fondobase.png" />
+    <Resource Include="assets\imagenes\formulario_inicio.png" />
+    <Resource Include="assets\imagenes\inicio.png" />
   </ItemGroup>
 
 </Project>
