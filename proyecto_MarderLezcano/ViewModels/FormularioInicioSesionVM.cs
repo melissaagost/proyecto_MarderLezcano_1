@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using proyecto_MarderLezcano.Commands;
 using proyecto_MarderLezcano.Views;
+using System.Windows.Controls;
+using System.Windows;
 
 
 
@@ -26,7 +28,11 @@ namespace proyecto_MarderLezcano.ViewModels
 
         private void OnIngresar(object parameter)
         {
-            // Lógica para manejar el inicio de sesión
+            var menuWindow = new Views.User.Menu();
+            menuWindow.Show();
+            //var mainWindowVM = Application.Current.MainWindow.DataContext as PaginaPrincipalVM;
+            //mainWindowVM.CloseCommand.Execute(mainWindowVM);
+            Application.Current.MainWindow.Close(); //cambiar si se necesita otra funcionalidad
         }
 
         private void OnEditarContrasena(object parameter)

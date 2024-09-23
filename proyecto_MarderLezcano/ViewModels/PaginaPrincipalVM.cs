@@ -26,23 +26,14 @@ namespace proyecto_MarderLezcano.ViewModels
             CloseCommand = new RelayCommand(OnClose);
         }
 
-        private void NavegarAFormularioInicioSesion(object parameter)
-        {
-            FormularioInicioSesion formularioInicioSesion = new FormularioInicioSesion();
-            //formularioInicioSesion.Show(); // Mostrar la segunda vista
-            // Aquí podrías cerrar la primera ventana si es necesario
-        }
 
-        private void OnIniciarSesion(object parameter)
-        {
-            MessageBox.Show("Comando de iniciar sesión ejecutado."); 
+        private void OnIniciarSesion(object parameter) { 
 
             // Obtener la ventana principal
             var ventanaPrincipal = Application.Current.MainWindow as PaginaInicio;
 
             if (ventanaPrincipal != null)
             {
-                MessageBox.Show("Ventana principal encontrada."); // Para verificar que encontró la ventana
 
                 // Asumiendo que hay un Frame llamado 'MainFrame' en tu ventana principal
                 ventanaPrincipal.NavigateTo(new FormularioInicioSesion()); 

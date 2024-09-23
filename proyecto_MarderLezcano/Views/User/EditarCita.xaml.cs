@@ -12,12 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace proyecto_MarderLezcano.Views
+namespace proyecto_MarderLezcano.Views.User
 {
-    /// <summary>
-    /// Interaction logic for EditarCita.xaml
-    /// </summary>
-    public partial class EditarCita : Window
+    public partial class EditarCita : Page
     {
         public EditarCita()
         {

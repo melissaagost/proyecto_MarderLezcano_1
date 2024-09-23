@@ -12,12 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace proyecto_MarderLezcano.Views
+namespace proyecto_MarderLezcano.Views.User
 {
     /// <summary>
     /// Interaction logic for ListadoUsuarios.xaml
     /// </summary>
-    public partial class ListadoUsuarios : Window
+    public partial class ListadoUsuarios : Page
     {
         public ListadoUsuarios()
         {

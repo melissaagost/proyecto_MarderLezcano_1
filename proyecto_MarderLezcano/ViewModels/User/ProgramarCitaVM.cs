@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 
-namespace proyecto_MarderLezcano.ViewModels
+namespace proyecto_MarderLezcano.ViewModels.User
 {
     public class ProgramarCitaVM
     {

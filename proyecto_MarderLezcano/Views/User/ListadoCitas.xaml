@@ -1,9 +1,10 @@
-﻿<Page x:Class="proyecto_MarderLezcano.Views.ListadoCitas"
+﻿<Page x:Class="proyecto_MarderLezcano.Views.User.ListadoCitas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:proyecto_MarderLezcano.Views"
+        xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
+        xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
         mc:Ignorable="d"
         Title="Citas programadas"
         Width="1200" Height="650">

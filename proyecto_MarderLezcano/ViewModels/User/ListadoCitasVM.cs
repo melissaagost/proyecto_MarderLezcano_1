@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace proyecto_MarderLezcano.ViewModels
+namespace proyecto_MarderLezcano.ViewModels.User
 {
     class ListadoCitasVM
     {

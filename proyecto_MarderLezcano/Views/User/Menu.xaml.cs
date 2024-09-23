@@ -12,26 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace proyecto_MarderLezcano.Views
+namespace proyecto_MarderLezcano.Views.User
 {
     /// <summary>
-    /// Interaction logic for ListadoCitas.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class ListadoCitas : Window
+    public partial class Menu : Window
     {
-        public ListadoCitas()
+        public Menu()
         {
             InitializeComponent();
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace proyecto_MarderLezcano.Views
+namespace proyecto_MarderLezcano.Views.User
 {
     /// <summary>
-    /// Interaction logic for ProgramarCita.xaml
+    /// Interaction logic for NuevoUsuario.xaml
     /// </summary>
-    public partial class ProgramarCita : Window
+    public partial class NuevoUsuario : Page
     {
-        public ProgramarCita()
+        public NuevoUsuario()
         {
             InitializeComponent();
         }

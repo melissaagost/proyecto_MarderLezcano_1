@@ -47,7 +47,7 @@
                 <Button Content="Ingresar" 
                         Width="250" 
                         Height="40"
-                        Command="{Binding IniciarSesionCommand}" 
+                        Command="{Binding IngresarCommand}" 
                         Background="#407053"  
                         Foreground="#fffdf0"
                         FontSize="12" 
