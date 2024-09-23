@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using proyecto_MarderLezcano.Views;
-using System.Windows; // Asegúrate de tener esta línea
+using System.Windows; 
 using proyecto_MarderLezcano.ViewModels;
 using proyecto_MarderLezcano.Commands;
 
 namespace proyecto_MarderLezcano.ViewModels
 {
-    public class PaginaInicioVM : BaseViewModel
+    public class PaginaPrincipalVM : BaseViewModel
     {
         // Este comando se activará cuando el usuario haga clic en "Iniciar Sesión".
         public ICommand IniciarSesionCommand { get; }
         public RelayCommand MinimizeCommand { get; private set; }
         public RelayCommand CloseCommand { get; private set; }
 
-        public PaginaInicioVM()
+        public PaginaPrincipalVM()
         {
             // Inicializa el comando con la acción a realizar cuando se ejecuta.
             IniciarSesionCommand = new RelayCommand(OnIniciarSesion);
@@ -35,7 +35,7 @@ namespace proyecto_MarderLezcano.ViewModels
 
         private void OnIniciarSesion(object parameter)
         {
-            MessageBox.Show("Comando de iniciar sesión ejecutado."); // Para depuración
+            MessageBox.Show("Comando de iniciar sesión ejecutado."); 
 
             // Obtener la ventana principal
             var ventanaPrincipal = Application.Current.MainWindow as PaginaInicio;
@@ -44,14 +44,15 @@ namespace proyecto_MarderLezcano.ViewModels
             {
                 MessageBox.Show("Ventana principal encontrada."); // Para verificar que encontró la ventana
 
-                // Navegar al formulario de inicio de sesión dentro del Frame
-                ventanaPrincipal.NavigateTo(new FormularioInicioSesion());
+                // Asumiendo que hay un Frame llamado 'MainFrame' en tu ventana principal
+                ventanaPrincipal.NavigateTo(new FormularioInicioSesion()); 
             }
             else
             {
                 MessageBox.Show("No se pudo encontrar la ventana principal.");
             }
         }
+
 
         // Estos métodos no tendrán lógica en el ViewModel porque la acción se maneja en la vista (code-behind)
         private void OnMinimize(object parameter)

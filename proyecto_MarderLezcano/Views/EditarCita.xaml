@@ -1,4 +1,4 @@
-﻿<Window x:Class="proyecto_MarderLezcano.Views.EditarCita"
+﻿<Page x:Class="proyecto_MarderLezcano.Views.EditarCita"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views"
         mc:Ignorable="d"
         Title="Editar cita"
-        Width="1200" Height="650"
-        WindowStartupLocation="CenterScreen" 
-        ResizeMode="NoResize" 
-        WindowStyle="None">
+        Width="1200" Height="650">
+
 
     <Grid>
         <Grid.Background>
@@ -211,4 +209,4 @@
             </Canvas>
         </Border>
     </Grid>
-</Window>
+</Page>

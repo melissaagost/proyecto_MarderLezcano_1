@@ -1,4 +1,5 @@
 ﻿using proyecto_MarderLezcano.ViewModels;
+using proyecto_MarderLezcano.Views;
 using System.Windows.Controls;
 using System.Windows;
 using proyecto_MarderLezcano.Commands;
@@ -17,22 +18,21 @@ using System.Windows.Shapes;
 
 namespace proyecto_MarderLezcano.Views
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
+ 
     public partial class PaginaInicio : Window
     {
         public PaginaInicio()
         {
             InitializeComponent();
-            this.DataContext = new PaginaInicioVM(); // Asigna el ViewModel
+            //this.DataContext = new PaginaPrincipalVM(); // Asigna el ViewModel
+            MainFrame.Navigate(new PaginaPrincipal());
         }
 
         // Método para cambiar la vista en el Frame
         public void NavigateTo(Page page)
         {
-            //MainFrame.Navigate(page);
-            MainFrame.NavigationService.Navigate(page);
+           
+            MainFrame.Navigate(page);
 
         }
         private void MinimizeWindow(object sender, RoutedEventArgs e)
