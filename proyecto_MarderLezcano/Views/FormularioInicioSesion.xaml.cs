@@ -27,7 +27,15 @@ namespace proyecto_MarderLezcano.Views
             DataContext = new FormularioInicioSesionVM();
         }
 
-
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var passwordBox = sender as PasswordBox;
+            var viewModel = this.DataContext as FormularioInicioSesionVM;
+            if (viewModel != null)
+            {
+                viewModel.Contrasena = passwordBox.Password;
+            }
+        }
     }
 }
 

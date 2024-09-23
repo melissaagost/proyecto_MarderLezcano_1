@@ -21,18 +21,19 @@
     </Window.Resources>
 
     <Grid>
-        
+
 
         <!-- Definimos dos columnas: una fija de 200px para el menú y otra que ocupa el resto -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="232"/>
             <!-- Columna para el menú lateral -->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
             <!-- Columna para el área principal -->
         </Grid.ColumnDefinitions>
 
         <!-- Menú lateral -->
-        <StackPanel Background="#407053" Grid.Column="0" VerticalAlignment="Stretch">
+        <StackPanel Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
+
             <ItemsControl ItemsSource="{Binding MenuItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -46,27 +47,59 @@
         </StackPanel>
 
         <!-- Área principal para cargar vistas -->
-        <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10"/>
+        <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10,25,13,10"/>
         <Button Content="-" 
-            Width="30" 
-            Height="30" 
             FontSize="20"
             Command="{Binding MinimizeCommand}"
             Background="#fffdf0" 
             Foreground="#407053"
             FontWeight="Bold" 
-            BorderBrush="Transparent" Grid.Column="1" Margin="914,10,56,610" />
+            BorderBrush="Transparent" Grid.Column="1" Margin="899,6,38,614" />
 
         <Button Content="X" 
-            Width="30" 
-            Height="30" 
             FontSize="16"
             Command="{Binding CloseCommand}"
             Background="#fffdf0" 
             Foreground="#407053"
             FontWeight="Bold" 
             BorderBrush="Transparent"
-            Margin="960,10,10,610" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />   
+            Margin="935,6,5,614" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />
+        <!-- Título en la parte superior -->
+        <TextBlock 
+            FontFamily="Georgia" 
+            FontSize="40" 
+            FontWeight="Bold" 
+            Foreground="#fffdf0"
+            HorizontalAlignment="Left"  
+            VerticalAlignment="Top" 
+            TextAlignment="Center"
+            Margin="8,10,0,0" 
+            Width="212" Height="90">
+            MediLink
+        </TextBlock>
+        <!-- Título en la parte superior -->
+        <TextBlock 
+            FontFamily="Verdana" 
+            FontSize="20" 
+            Foreground="#fffdf0"
+            HorizontalAlignment="Left"  
+            VerticalAlignment="Top"  
+            TextAlignment="Left"
+            Margin="17,100,0,0" 
+            Width="212" Height="325"
+            FontStretch="Condensed"
+            LineHeight="50" 
+            >
+            Perfil  
+            <LineBreak />
+            Nueva cita
+            <LineBreak />
+            Listado citas
+            <LineBreak />
+            Nuevo paciente
+            <LineBreak />
+            Listado pacientes
+        </TextBlock>
     </Grid>
 
 </Window>

@@ -10,6 +10,18 @@
         Height="650"
         >
 
+    <Page.Resources>
+        <!-- Estilo para mostrar los errores de validación en un ToolTip -->
+        <Style TargetType="TextBox">
+            <Setter Property="ToolTip" 
+                    Value="{Binding (Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}" />
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="ToolTip" 
+                    Value="{Binding (Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}" />
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/formulario_inicio.png" />
@@ -37,12 +49,13 @@
 
                 <!-- TextBox para el Usuario -->
                 <TextBlock Text="Usuario" Foreground="Gray" Margin="0,0,0,5"/>
-                <TextBox x:Name="UsernameTextBox" Width="250" Height="25" Margin="0,0,0,15"/>
+                <TextBox Text="{Binding Usuario, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="UsernameTextBox" Width="250" Height="25" Margin="0,0,0,15"/>
 
                 <!-- TextBox para la Contraseña -->
                 <TextBlock Text="Contraseña" Foreground="Gray" Margin="0,0,0,5"/>
-                <PasswordBox x:Name="PasswordBox" Width="250" Height="25" Margin="0,0,0,15"/>
+                <PasswordBox x:Name="PasswordBox" Width="250" Height="25" Margin="0,0,0,15" PasswordChanged="PasswordBox_PasswordChanged"/>
 
+       
                 <!-- Botones -->
                 <Button Content="Ingresar" 
                         Width="250" 
