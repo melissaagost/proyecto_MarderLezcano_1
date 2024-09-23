@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_MarderLezcano.ViewModels.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace proyecto_MarderLezcano.Views.User
         public Menu()
         {
             InitializeComponent();
+            this.DataContext = new MenuVM(); // Asegúrate de que aquí estés asignando el ViewModel correcto
+
         }
     }
 }

@@ -26,6 +26,8 @@ namespace proyecto_MarderLezcano.Views
             InitializeComponent();
             DataContext = new FormularioInicioSesionVM();
         }
+
+
     }
 }
 

@@ -94,7 +94,29 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+
+                
             </StackPanel>
         </Border>
+        <Button Content="-" 
+                Width="30" 
+                Height="30" 
+                FontSize="20"
+                Command="{Binding MinimizeCommand}"
+                Background="#fffdf0" 
+                Foreground="#407053"
+                FontWeight="Bold" 
+                BorderBrush="Transparent" Margin="1115,10,55,610" />
+
+           <Button Content="X" 
+                Width="30" 
+                Height="30" 
+                FontSize="16"
+                Command="{Binding CloseCommand}"
+                Background="#fffdf0" 
+                Foreground="#407053"
+                FontWeight="Bold" 
+                BorderBrush="Transparent"
+                Margin="1160,10,10,610" RenderTransformOrigin="0.48,-5.953" />
     </Grid>
 </Page>

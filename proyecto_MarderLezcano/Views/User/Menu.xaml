@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
         xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
-        Title="Menu Principal" Height="450" Width="800">
+        Title="Menu Principal" Width="1200" Height="650"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
 
     <!-- Importa el ResourceDictionary aquí -->
     <Window.Resources>
@@ -18,6 +21,8 @@
     </Window.Resources>
 
     <Grid>
+        
+
         <!-- Definimos dos columnas: una fija de 200px para el menú y otra que ocupa el resto -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -27,7 +32,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Menú lateral -->
-        <StackPanel Background="#2C2F33" Grid.Column="0" VerticalAlignment="Stretch">
+        <StackPanel Background="#407053" Grid.Column="0" VerticalAlignment="Stretch">
             <ItemsControl ItemsSource="{Binding MenuItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -42,6 +47,26 @@
 
         <!-- Área principal para cargar vistas -->
         <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10"/>
+        <Button Content="-" 
+            Width="30" 
+            Height="30" 
+            FontSize="20"
+            Command="{Binding MinimizeCommand}"
+            Background="#fffdf0" 
+            Foreground="#407053"
+            FontWeight="Bold" 
+            BorderBrush="Transparent" Grid.Column="1" Margin="914,10,56,610" />
+
+        <Button Content="X" 
+            Width="30" 
+            Height="30" 
+            FontSize="16"
+            Command="{Binding CloseCommand}"
+            Background="#fffdf0" 
+            Foreground="#407053"
+            FontWeight="Bold" 
+            BorderBrush="Transparent"
+            Margin="960,10,10,610" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />   
     </Grid>
 
 </Window>

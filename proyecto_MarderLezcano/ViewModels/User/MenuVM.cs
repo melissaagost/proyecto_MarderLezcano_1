@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using proyecto_MarderLezcano.Models;
 using proyecto_MarderLezcano.Commands;
+using System.Windows;
 
 
 
@@ -14,6 +15,8 @@ namespace proyecto_MarderLezcano.ViewModels.User
 {
     public class MenuVM : BaseViewModel
     {
+        public RelayCommand MinimizeCommand { get; }
+        public RelayCommand CloseCommand { get; }
         //public ObservableCollection<MenuItemModel> MenuItems { get; set; }
         private BaseViewModel _currentViewModel;
         public BaseViewModel CurrentViewModel
@@ -26,7 +29,9 @@ namespace proyecto_MarderLezcano.ViewModels.User
 
         public MenuVM()
         {
-           // Inicializa los ítems del menú
+            MinimizeCommand = new RelayCommand(OnMinimize);
+            CloseCommand = new RelayCommand(OnClose);
+            // Inicializa los ítems del menú
             var MenuItems = new ObservableCollection<MenuItemModel>
 
             {
@@ -46,6 +51,15 @@ namespace proyecto_MarderLezcano.ViewModels.User
         {
             var viewModel = Activator.CreateInstance((Type)viewModelType) as BaseViewModel;
             CurrentViewModel = viewModel;
+        }
+        private void OnMinimize(object parameter)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void OnClose(object parameter)
+        {
+            Application.Current.MainWindow.Close();
         }
     }
 }
