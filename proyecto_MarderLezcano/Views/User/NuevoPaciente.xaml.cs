@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace proyecto_MarderLezcano.Views.User
 {
     /// <summary>
-    /// Interaction logic for ProgramarCita.xaml
+    /// Lógica de interacción para NuevoPaciente.xaml
     /// </summary>
-    public partial class ProgramarCita : Page
+    public partial class NuevoPaciente : Page
     {
-        public ProgramarCita()
+        public NuevoPaciente()
         {
             InitializeComponent();
-        }
-
-        private void MotivoTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
