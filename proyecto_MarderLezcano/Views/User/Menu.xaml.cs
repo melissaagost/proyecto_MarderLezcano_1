@@ -15,15 +15,12 @@ using System.Windows.Shapes;
 
 namespace proyecto_MarderLezcano.Views.User
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class Menu : Window
     {
         public Menu()
         {
             InitializeComponent();
-            this.DataContext = new MenuVM(); // Asegúrate de que aquí estés asignando el ViewModel correcto
+            this.DataContext = new MenuVM();
 
         }
     }

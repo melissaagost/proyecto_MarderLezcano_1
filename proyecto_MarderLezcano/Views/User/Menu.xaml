@@ -14,11 +14,14 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!-- Aquí referenciamos el archivo Menu.xaml -->
                 <ResourceDictionary Source="/Estilos/Menu.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+
+    <Window.DataContext>
+        <vm:MenuVM/>
+    </Window.DataContext>
 
     <Grid>
 
@@ -34,20 +37,27 @@
         <!-- Menú lateral -->
         <StackPanel Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
 
-            <ItemsControl ItemsSource="{Binding MenuItems}">
+            <Button Content="Dashboard" 
+                    Command="{Binding ShowDashboardCommand}" 
+            />
+
+           
+            <!--<ItemsControl ItemsSource="{Binding MenuItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Content="{Binding Name}" 
-                                Command="{Binding DataContext.ChangeViewCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
-                                CommandParameter="{Binding ViewModelType}"
-                                Style="{StaticResource MenuButtonStyle}" />
+                                Command="{Binding Command}" 
+                                 />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            </ItemsControl>-->
+            
         </StackPanel>
 
         <!-- Área principal para cargar vistas -->
         <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10,25,13,10"/>
+        
+        <!--barra-->
         <Button Content="-" 
             FontSize="20"
             Command="{Binding MinimizeCommand}"
@@ -64,6 +74,8 @@
             FontWeight="Bold" 
             BorderBrush="Transparent"
             Margin="935,6,5,614" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />
+        
+        
         <!-- Título en la parte superior -->
         <TextBlock 
             FontFamily="Georgia" 
@@ -77,29 +89,7 @@
             Width="212" Height="90">
             MediLink
         </TextBlock>
-        <!-- Título en la parte superior -->
-        <TextBlock 
-            FontFamily="Verdana" 
-            FontSize="20" 
-            Foreground="#fffdf0"
-            HorizontalAlignment="Left"  
-            VerticalAlignment="Top"  
-            TextAlignment="Left"
-            Margin="17,100,0,0" 
-            Width="212" Height="325"
-            FontStretch="Condensed"
-            LineHeight="50" 
-            >
-            Perfil  
-            <LineBreak />
-            Nueva cita
-            <LineBreak />
-            Listado citas
-            <LineBreak />
-            Nuevo paciente
-            <LineBreak />
-            Listado pacientes
-        </TextBlock>
+        
     </Grid>
 
 </Window>
