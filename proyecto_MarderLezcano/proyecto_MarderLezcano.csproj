@@ -29,6 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="assets\imagenes\fondobase.png" />
     <Resource Include="assets\imagenes\formulario_inicio.png" />
     <Resource Include="assets\imagenes\inicio.png" />
