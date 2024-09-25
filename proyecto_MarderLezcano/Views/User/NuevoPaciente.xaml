@@ -58,7 +58,7 @@
 
             <Canvas>
                 <!--titulo-->
-                <Border Background="#60a67c" CornerRadius="10" Height="39" Width="342" HorizontalAlignment="Left" Canvas.Left="192" VerticalAlignment="Center">
+                <Border Background="#60a67c" CornerRadius="10" Height="39" Width="356" HorizontalAlignment="Left" Canvas.Left="185" VerticalAlignment="Center">
                     <TextBlock Text="  Ingrese un nuevo Paciente  "
                        FontFamily="Georgia"
                        FontSize="24" 

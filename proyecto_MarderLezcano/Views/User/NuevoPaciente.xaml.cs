@@ -24,5 +24,10 @@ namespace proyecto_MarderLezcano.Views.User
         {
             InitializeComponent();
         }
+
+        private void TelefonoTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

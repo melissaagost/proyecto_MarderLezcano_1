@@ -62,63 +62,131 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Center"/>
         </Border>
-        
-        
-        <!--datos del usuario-->
-        <Border Background="#F7958F" Margin="390,133,399,346" CornerRadius="20" Padding="15">
-            <Grid Margin="80,0,68,66">
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+        <!-- Etiqueta y TextBox para Nombre -->
+        <TextBlock Text="Nombre/s" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="508,133,0,0" />
+        <TextBox Canvas.Top="81" 
+         x:Name="NombreTB" 
+         FontFamily="Verdana" 
+         FontSize="15"
+         Padding="5" 
+         Height="34" 
+         Width="190" HorizontalAlignment="Left" Canvas.Left="42" VerticalAlignment="Top" Margin="492,152,0,0"/>
 
-                <TextBlock Text="Asigne un nombre de usuario"
-                           FontFamily="Verdana"
-                           FontSize="14"
-                           Grid.Row="0" Margin="0,5,0,7" Grid.RowSpan="4" 
-                           Foreground="#FFFFFDF0" />
-                <TextBox Grid.Row="3" Margin="0,14,30,-33" />
+        <!-- Etiqueta y TextBox para Apellido -->
+        <TextBlock Text="Apellido/s" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="705,134,426,493" />
+        <TextBox Canvas.Left="268" Canvas.Top="81" 
+         x:Name="ApellidoTB" 
+         FontFamily="Verdana" 
+         FontSize="15"
+         Padding="5" 
+         Height="34" 
+         Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="705,152,0,0"/>
 
-                <TextBlock Text="Cree una contraseña"
-                           FontFamily="Verdana"
-                           FontSize="14"
-                           Grid.Row="3"
-                           Margin="0,54,0,-59" Foreground="#FFFFFDF0" />
-                <PasswordBox Grid.Row="3" Margin="0,77,30,-96" />
+        <!-- Etiqueta y TextBox para DNI -->
+        <TextBlock Text="DNI" Foreground="Gray" Canvas.Left="493" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,131,0,0" />
+        <TextBox Canvas.Left="492" Canvas.Top="81" 
+         x:Name="DNITB" 
+         FontFamily="Verdana" 
+         FontSize="15"
+         Padding="5" 
+         Height="34" 
+         Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,152,0,0"/>
 
-            </Grid>
-        </Border>
+        <!-- Etiqueta y TextBox para Usuario -->
+        <TextBlock Text="Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,213,0,0" />
+        <TextBox Canvas.Top="81" 
+              x:Name="UsuarioTB" 
+              FontFamily="Verdana" 
+              FontSize="15"
+              Padding="5" 
+              Height="34" 
+              Width="190" HorizontalAlignment="Left" Canvas.Left="42" VerticalAlignment="Top" Margin="297,234,0,0"/>
 
-        <!--seleccion de roles-->
-        <Border Background="#C7F0D7" Margin="390,338,399,141" CornerRadius="20" Padding="15">
-            <Grid>
-                <TextBlock Text="Asigne un rol"  FontFamily="verdana" FontSize="14" Margin="10,0,249,119" Foreground="Black"/>
+        <!-- Etiqueta y TextBox para Contraseña -->
+        <TextBlock Text="Contraseña" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="500,211,631,416" />
+        <TextBox Canvas.Left="268" Canvas.Top="81" 
+                  x:Name="ContraseñaTB" 
+                  FontFamily="Verdana" 
+                  FontSize="15"
+                  Padding="5" 
+                  Height="34" 
+                  Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,234,0,0"/>
 
-                <!--admin-->
-                <RadioButton Margin="10,81,352,38"></RadioButton>
-                <TextBlock Text="Administrador" FontFamily="Verdana" FontSize="10" Margin="29,82,244,45" Foreground="Black"/>
-                <Image Source="/assets/imagenes/admin.png" Margin="36,38,297,67"></Image>
+        <!-- Etiqueta y DatePicker para Fecha de Nacimiento -->
+        <TextBlock Text="Fecha de Nacimiento" Foreground="Gray" Canvas.Left="268" Canvas.Top="139" Margin="740,206,316,421" />
+        <DatePicker Canvas.Left="268" Canvas.Top="160" 
+            x:Name="FechaNacimientoDP"
+            Width="190"
+            Height="34"
+            SelectedDate="{Binding FechaNacimiento}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="740,234,0,0"/>
 
-                <!--recepcionista-->
-                <TextBlock Text="Recepcionista" FontFamily="Verdana" FontSize="10" Margin="142,81,159,44" Foreground="Black"/>
-                <RadioButton Margin="123,81,239,38"></RadioButton>
-                <Image Source="/assets/imagenes/recep2.png" Margin="148,38,185,67"></Image>
+        <!-- Etiqueta y TextBox para Teléfono -->
+        <TextBlock Text="Teléfono" Foreground="Gray" Canvas.Top="299" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307,273,0,0" />
+        <TextBox Canvas.Top="320" 
+         x:Name="TelefonoTB" 
+         FontFamily="Verdana" 
+         FontSize="15"
+         Padding="5" 
+         Height="34" 
+         Width="190" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="TelefonoTB_TextChanged" Text="" Margin="317,291,0,0"/>
 
-                <!--Medico-->
-                <TextBlock Text="Médico" FontFamily="verdana" FontSize="10" Margin="246,82,89,45" Foreground="Black"/>
-                <RadioButton Margin="227,81,135,38"></RadioButton>
-                <Image Source="/assets/imagenes/medic.png" Margin="236,38,97,67"></Image>
+        <!-- Etiqueta y TextBox para Correo -->
+        <TextBlock Text="Correo" Foreground="Gray" Canvas.Top="299" Canvas.Left="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Canvas.Top="320" 
+                 x:Name="CorreoTB" 
+                 FontFamily="Verdana" 
+                 FontSize="15"
+                 Padding="5" 
+                 Height="34" 
+                 Width="190" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="565,278,0,0"/>
 
-                <!--super admnin-->
-                <TextBlock Text="Gestor" FontFamily="verdana" FontSize="10" Margin="316,82,25,43" Foreground="Black"/>
-                <RadioButton Margin="297,81,65,38"></RadioButton>
-                <Image Source="/assets/imagenes/superadminn.png" Margin="310,38,23,67"></Image>
-            </Grid>
-        </Border>
+        <!-- Etiqueta y TextBox para Dirección -->
+        <TextBlock Text="Dirección" Foreground="Gray" Canvas.Top="216" Canvas.Left="42" Margin="812,68,331,565" />
+        <TextBox Canvas.Top="237" 
+                 x:Name="DireccionTB" 
+                 FontFamily="Verdana" 
+                 FontSize="15"
+                 Padding="5" 
+                 Height="34" 
+                 Width="190" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="812,85,0,0"/>
 
+        <!-- Etiqueta y ComboBox para Provincia -->
+        <TextBlock Text="Provincia" Foreground="Gray" Canvas.Top="216" Canvas.Left="269" Margin="825,325,319,296" />
+        <ComboBox x:Name="ProvinciaCB"
+              Canvas.Top="237" 
+              Width="190" 
+              Height="34"
+              ItemsSource="{Binding ListaProvincias}"
+              SelectedItem="{Binding ProvinciaSeleccionada}"
+              DisplayMemberPath="Nombre"
+              SelectedValuePath="id_provincia"
+              FontFamily="Verdana"
+              FontSize="15" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="786,350,0,0"/>
+
+        <!-- Etiqueta y ComboBox para Ciudad -->
+        <TextBlock Text="Ciudad" Foreground="Gray" Canvas.Left="493" Canvas.Top="299" Margin="280,338,870,287" />
+        <ComboBox x:Name="CiudadCB"
+              Canvas.Left="493" Canvas.Top="320" 
+              Width="187" 
+              Height="34"
+              ItemsSource="{Binding ListaCiudades}"
+              SelectedItem="{Binding CiudadSeleccionada}"
+              DisplayMemberPath="Nombre"
+              SelectedValuePath="id_ciudad"
+              FontFamily="Verdana"
+              FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,366,0,0"/>
+
+
+        <ListBox x:Name="PerfilesListBox" Margin="423,366,419,139">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="{Binding nombre}" Tag="{Binding id_perfil}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <!--botnes guardar/cancelar-->
         <Button x:Name="BCrearUsuario" 
                 Content="Crear"
