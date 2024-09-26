@@ -50,10 +50,10 @@
                 Padding="20" 
                 BorderThickness="1"
                 HorizontalAlignment="Center" 
-                VerticalAlignment="Center" 
-                Width="692" Height="575"/>
+                VerticalAlignment="Top" 
+                Width="692" Height="504" Margin="0,86,0,0"/>
 
-        <Border Background="#60a67c" CornerRadius="15" Margin="399,68,399,548">
+        <Border Background="#60a67c" CornerRadius="15" Margin="399,116,399,500">
             <TextBlock Text="Registre un nuevo usuario"
                FontFamily="Georgia"
                FontSize="25" 
@@ -64,95 +64,95 @@
         </Border>
 
         <!-- Etiqueta y TextBox para Nombre -->
-        <TextBlock Text="Nombre/s" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="508,133,0,0" />
+        <TextBlock Text="Nombre/s" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,190,0,0" />
         <TextBox Canvas.Top="81" 
          x:Name="NombreTB" 
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
          Height="34" 
-         Width="190" HorizontalAlignment="Left" Canvas.Left="42" VerticalAlignment="Top" Margin="492,152,0,0"/>
+         Width="190" HorizontalAlignment="Center" Canvas.Left="42" VerticalAlignment="Top" Margin="0,211,0,0"/>
 
         <!-- Etiqueta y TextBox para Apellido -->
-        <TextBlock Text="Apellido/s" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="705,134,426,493" />
+        <TextBlock Text="Apellido/s" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="714,190,417,437" />
         <TextBox Canvas.Left="268" Canvas.Top="81" 
          x:Name="ApellidoTB" 
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
          Height="34" 
-         Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="705,152,0,0"/>
+         Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,211,0,0"/>
 
         <!-- Etiqueta y TextBox para DNI -->
-        <TextBlock Text="DNI" Foreground="Gray" Canvas.Left="493" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,131,0,0" />
+        <TextBlock Text="DNI" Foreground="Gray" Canvas.Left="493" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,190,0,0" />
         <TextBox Canvas.Left="492" Canvas.Top="81" 
          x:Name="DNITB" 
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
          Height="34" 
-         Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,152,0,0"/>
+         Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,211,0,0"/>
 
         <!-- Etiqueta y TextBox para Usuario -->
-        <TextBlock Text="Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,213,0,0" />
+        <TextBlock Text="Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,270,0,0" />
         <TextBox Canvas.Top="81" 
               x:Name="UsuarioTB" 
               FontFamily="Verdana" 
               FontSize="15"
               Padding="5" 
               Height="34" 
-              Width="190" HorizontalAlignment="Left" Canvas.Left="42" VerticalAlignment="Top" Margin="297,234,0,0"/>
+              Width="190" HorizontalAlignment="Left" Canvas.Left="42" VerticalAlignment="Top" Margin="297,291,0,0"/>
 
         <!-- Etiqueta y TextBox para Contraseña -->
-        <TextBlock Text="Contraseña" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="500,211,631,416" />
+        <TextBlock Text="Contraseña" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="506,270,625,357" />
         <TextBox Canvas.Left="268" Canvas.Top="81" 
                   x:Name="ContraseñaTB" 
                   FontFamily="Verdana" 
                   FontSize="15"
                   Padding="5" 
                   Height="34" 
-                  Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,234,0,0"/>
+                  Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,291,0,0"/>
 
         <!-- Etiqueta y DatePicker para Fecha de Nacimiento -->
-        <TextBlock Text="Fecha de Nacimiento" Foreground="Gray" Canvas.Left="268" Canvas.Top="139" Margin="740,206,316,421" />
+        <TextBlock Text="Fecha de Nacimiento" Foreground="Gray" Canvas.Left="268" Canvas.Top="139" Margin="714,345,342,283" />
         <DatePicker Canvas.Left="268" Canvas.Top="160" 
             x:Name="FechaNacimientoDP"
             Width="190"
             Height="34"
-            SelectedDate="{Binding FechaNacimiento}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="740,234,0,0"/>
+            SelectedDate="{Binding FechaNacimiento}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Teléfono -->
-        <TextBlock Text="Teléfono" Foreground="Gray" Canvas.Top="299" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307,273,0,0" />
+        <TextBlock Text="Teléfono" Foreground="Gray" Canvas.Top="299" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,345,0,0" />
         <TextBox Canvas.Top="320" 
          x:Name="TelefonoTB" 
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
          Height="34" 
-         Width="190" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="TelefonoTB_TextChanged" Text="" Margin="317,291,0,0"/>
+         Width="190" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="TelefonoTB_TextChanged" Text="" Margin="297,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Correo -->
-        <TextBlock Text="Correo" Foreground="Gray" Canvas.Top="299" Canvas.Left="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Text="Correo" Foreground="Gray" Canvas.Top="299" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,345,0,0" />
         <TextBox Canvas.Top="320" 
                  x:Name="CorreoTB" 
                  FontFamily="Verdana" 
                  FontSize="15"
                  Padding="5" 
                  Height="34" 
-                 Width="190" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="565,278,0,0"/>
+                 Width="190" Canvas.Left="42" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Dirección -->
-        <TextBlock Text="Dirección" Foreground="Gray" Canvas.Top="216" Canvas.Left="42" Margin="812,68,331,565" />
+        <TextBlock Text="Dirección" Foreground="Gray" Canvas.Top="216" Canvas.Left="42" Margin="714,420,429,213" />
         <TextBox Canvas.Top="237" 
                  x:Name="DireccionTB" 
                  FontFamily="Verdana" 
                  FontSize="15"
                  Padding="5" 
                  Height="34" 
-                 Width="190" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="812,85,0,0"/>
+                 Width="190" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,445,0,0"/>
 
         <!-- Etiqueta y ComboBox para Provincia -->
-        <TextBlock Text="Provincia" Foreground="Gray" Canvas.Top="216" Canvas.Left="269" Margin="825,325,319,296" />
+        <TextBlock Text="Provincia" Foreground="Gray" Canvas.Top="216" Canvas.Left="269" Margin="297,420,847,201" />
         <ComboBox x:Name="ProvinciaCB"
               Canvas.Top="237" 
               Width="190" 
@@ -162,31 +162,39 @@
               DisplayMemberPath="Nombre"
               SelectedValuePath="id_provincia"
               FontFamily="Verdana"
-              FontSize="15" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="786,350,0,0"/>
+              FontSize="15" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,444,0,0"/>
 
         <!-- Etiqueta y ComboBox para Ciudad -->
-        <TextBlock Text="Ciudad" Foreground="Gray" Canvas.Left="493" Canvas.Top="299" Margin="280,338,870,287" />
+        <TextBlock Text="Ciudad" Foreground="Gray" Canvas.Left="493" Canvas.Top="299" Margin="506,420,644,205" />
         <ComboBox x:Name="CiudadCB"
               Canvas.Left="493" Canvas.Top="320" 
-              Width="187" 
+              Width="188" 
               Height="34"
               ItemsSource="{Binding ListaCiudades}"
               SelectedItem="{Binding CiudadSeleccionada}"
               DisplayMemberPath="Nombre"
               SelectedValuePath="id_ciudad"
               FontFamily="Verdana"
-              FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,366,0,0"/>
+              FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,445,0,0"/>
 
 
-        <ListBox x:Name="PerfilesListBox" Margin="423,366,419,139">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Content="{Binding nombre}" Tag="{Binding id_perfil}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <!-- Etiqueta y ComboBox para Perfiles -->
+        <TextBlock Text="Perfil" Foreground="Gray" Canvas.Top="216" Canvas.Left="42" Margin="714,270,429,363" />
+        <ComboBox x:Name="PerfilesCB"
+          Canvas.Top="237" 
+          Width="190" 
+          Height="34"
+          ItemsSource="{Binding ListaPerfiles}"
+          SelectedItem="{Binding PerfilSeleccionado}"
+          DisplayMemberPath="Nombre"
+          SelectedValuePath="id_perfil"
+          FontFamily="Verdana"
+          FontSize="15" 
+          Canvas.Left="42" 
+          HorizontalAlignment="Left" 
+          VerticalAlignment="Top" 
+          Margin="714,291,0,0"/>
+
         <!--botnes guardar/cancelar-->
         <Button x:Name="BCrearUsuario" 
                 Content="Crear"
@@ -196,7 +204,7 @@
                 FontFamily="Georgia"
                 FontWeight="bold"
                 Background="#60a67c"
-                Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,533,0,0">
+                Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,515,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 
@@ -218,7 +226,7 @@
                 FontFamily="georgia"
                 FontWeight="Bold"
                 Background="#ff5757"
-                Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="522" Margin="609,533,0,0">
+                Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="522" Margin="609,515,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 
