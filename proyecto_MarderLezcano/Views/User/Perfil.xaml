@@ -108,6 +108,29 @@
                          FontSize="14"
                          FontWeight="ExtraLight"/>
 
+                <!--botnes agendar/cancelar-->
+                <Button x:Name="BEditar" Content="Editar"
+        Command="{Binding }"
+        Width="88" Height="28" 
+        Canvas.Left="155" Canvas.Top="458"
+        FontSize="15"
+        FontFamily="Georgia"
+        FontWeight="bold"
+        Background="#60a67c"
+        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="152,272,0,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+            BorderBrush="{TemplateBinding BorderBrush}" 
+            CornerRadius="20" 
+            Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
 
 
 

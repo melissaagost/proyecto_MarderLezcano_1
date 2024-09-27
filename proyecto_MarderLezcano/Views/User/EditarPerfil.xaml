@@ -17,9 +17,9 @@
 
         <!--botones de cerrar / minimizar-->
         <StackPanel Orientation="Horizontal" 
-            HorizontalAlignment="Right" 
-            VerticalAlignment="Top" 
-            Margin="8,8">
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Margin="8,8">
 
             <!-- Botón de minimizar -->
 
@@ -52,55 +52,89 @@
                 BorderThickness="1"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
-                Width="845" Height="550">
+                Width="600" Height="500">
 
-            <Grid>
+            <Grid Margin="-84,8,-186,-62">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="429*"/>
+                    <RowDefinition Height="83*"/>
+                </Grid.RowDefinitions>
 
                 <!--titulo-->
-                <Border Background="#60a67c" CornerRadius="15" Height="31" VerticalAlignment="Top" Margin="214,0,215,0">
-                    <TextBlock Text="Edite su información"
+                <Border Background="#60a67c" CornerRadius="15" Height="36" VerticalAlignment="Top" Margin="282,0,356,0">
+                    <TextBlock Text="Editar Perfil"
                                FontFamily="Georgia"
-                               FontSize="25" 
+                               FontSize="27" 
                                FontWeight="Bold" 
                                Foreground="#fffdf0" 
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"/>
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left" Width="195" Height="34" Margin="10,2,0,0"/>
                 </Border>
 
                 <!--foto de perfil-->
-                <Image Source="/assets/imagenes/pfp.png" Margin="26,58,614,307"></Image>
-                <Button Margin="44,190,695,296"
-                        Content="Editar"
-                        FontFamily="verdana"
-                        Foreground="#FF14311F"
-                        Background="Transparent"
-                        BorderBrush="Transparent"/>
+                <Image Source="/assets/imagenes/pfp.png" Margin="85,72,520,162"></Image>
 
-                <Button Margin="108,190,631,295"
-                        Content="Eliminar"
-                        FontFamily="verdana"
-                        Foreground="#FF14311F"
-                        Background="Transparent"
-                        BorderBrush="Transparent"/>
-
-
-                <!--nombres e email-->
-                <TextBlock Margin="184,83,393,400"
-                         Background="Transparent"
-                         Text="Nombre de ejemplo"
+                <!-- Nombre del usuario -->
+                <TextBlock Text="Nombre de Usuario" Foreground="Gray" Margin="325,89,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Margin="325,110,252,291"
+                         Text="{Binding Usuario.Nombre, Mode=TwoWay}"
                          FontWeight="Bold"
                          FontFamily="Georgia"
-                         FontSize="18"/>
-                <TextBlock Margin="184,113,459,373"
-                         Background="Transparent"
-                         Text="email@ejemplo.com"
+                         FontSize="18"
+                         Background="LightGray"/>
+
+                <!-- Email del usuario -->
+                <TextBlock Text="Email" Foreground="Gray" Margin="325,163,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Margin="325,184,252,219"
+                         Text="{Binding Usuario.Email, Mode=TwoWay}"
                          FontStyle="Italic"
                          FontFamily="verdana"
                          FontSize="14"
-                         FontWeight="ExtraLight"/>
-                
-                <!--casillas para editar-->
-                
+                         Background="LightGray"/>
+
+                <!-- Teléfono del usuario -->
+                <TextBlock Text="Telefono" Foreground="Gray" Margin="325,233,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Margin="325,254,252,149"
+                         Text="{Binding Usuario.Telefono, Mode=TwoWay}"
+                         FontStyle="Italic"
+                         FontFamily="verdana"
+                         FontSize="14"
+                         Background="LightGray"/>
+
+                <!-- Dirección del usuario -->
+                <TextBlock Text="Direccion" Foreground="Gray" Margin="325,305,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Margin="325,326,252,77"
+                         Text="{Binding Usuario.Direccion, Mode=TwoWay}"
+                         FontStyle="Italic"
+                         FontFamily="verdana"
+                         FontSize="14"
+                         Background="LightGray"/>
+
+                <!-- Botón de Guardar -->
+                <Button x:Name="BGuardar" Content="Guardar"
+                        Command="{Binding GuardarCommand}"
+                        Width="88" Height="28" 
+                        FontSize="15"
+                        FontFamily="Georgia"
+                        FontWeight="bold"
+                        Background="#60a67c"
+                        Foreground="#fffdf0" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Margin="152,272,0,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="20" 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
             </Grid>
         </Border>
 
