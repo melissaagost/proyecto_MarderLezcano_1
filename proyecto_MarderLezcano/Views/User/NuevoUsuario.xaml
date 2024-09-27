@@ -9,6 +9,9 @@
         Title="Crear un nuevo usuario" 
         Width="1200" Height="650"
         >
+    <Page.DataContext>
+        <vm:NuevoUsuarioVM/>
+    </Page.DataContext>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/fondobase.png" />
@@ -154,16 +157,17 @@
         <!-- Etiqueta y ComboBox para Provincia -->
         <TextBlock Text="Provincia" Foreground="Gray" Canvas.Top="216" Canvas.Left="269" Margin="297,420,847,201" />
         <ComboBox x:Name="ProvinciaCB"
-              Canvas.Top="237" 
-              Width="190" 
-              Height="34"
-              ItemsSource="{Binding ListaProvincias}"
-              SelectedItem="{Binding ProvinciaSeleccionada}"
-              DisplayMemberPath="Nombre"
-              SelectedValuePath="id_provincia"
-              FontFamily="Verdana"
-              FontSize="15" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,444,0,0"/>
-
+          Width="190" 
+          Height="34"
+          ItemsSource="{Binding ListaProvincias}"
+          SelectedItem="{Binding ProvinciaSeleccionada}"
+          DisplayMemberPath="Nombre"
+          SelectedValuePath="IdProvincia"
+          FontFamily="Verdana"
+          FontSize="15" 
+          HorizontalAlignment="Left" 
+          VerticalAlignment="Top" 
+          Margin="297,444,0,0"/>
         <!-- Etiqueta y ComboBox para Ciudad -->
         <TextBlock Text="Ciudad" Foreground="Gray" Canvas.Left="493" Canvas.Top="299" Margin="506,420,644,205" />
         <ComboBox x:Name="CiudadCB"

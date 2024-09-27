@@ -9,7 +9,6 @@ namespace proyecto_MarderLezcano.Models
     class ProvinciaM
     {
         public int id_provincia { get; set; }
-
         public string nombre { get; set; }
 
     }

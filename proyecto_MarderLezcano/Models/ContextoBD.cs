@@ -11,6 +11,7 @@ namespace proyecto_MarderLezcano.Models
     class ContextoBD : DbContext
     {
         public DbSet<PerfilM> Perfiles { get; set; } // Propiedad para la tabla Perfiles
+        public DbSet<ProvinciaM> Provincias { get; set; } // Definir el DbSet de ProvinciaM
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
