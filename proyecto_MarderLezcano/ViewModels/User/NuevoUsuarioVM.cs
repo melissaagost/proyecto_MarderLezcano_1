@@ -60,9 +60,8 @@ namespace proyecto_MarderLezcano.ViewModels.User
         public NuevoUsuarioVM()
         {
             CargarProvincias();
-            // Inicializa los comandos de navegación
+
             GoBackCommand = new RelayCommand(OnGoBack);
-            CloseCommand = new RelayCommand(OnClose);
         }
 
         // Método para cargar las provincias desde la base de datos
@@ -90,12 +89,14 @@ namespace proyecto_MarderLezcano.ViewModels.User
         // Método para ir hacia atrás en el Frame usando NavigationService
         private void OnGoBack(object parameter)
         {
-            // Obtén la ventana actual (puede ser Menu.xaml que contiene el Frame)
+            // Obtén la ventana principal (asumiendo que es Menu.xaml)
             var currentWindow = Application.Current.MainWindow as proyecto_MarderLezcano.Views.User.Menu;
+
             if (currentWindow != null)
             {
-                // Obtén el Frame llamado "Vistas"
+                // Accede al Frame que contiene las Pages
                 var frame = currentWindow.FindName("Vistas") as Frame;
+
                 if (frame != null && frame.NavigationService.CanGoBack)
                 {
                     frame.NavigationService.GoBack(); // Navega hacia la página anterior
@@ -105,21 +106,11 @@ namespace proyecto_MarderLezcano.ViewModels.User
                     MessageBox.Show("No hay una página previa a la que volver.");
                 }
             }
-        }
-        private void OnClose(object parameter)
-        {
-            
-            var currentPage = Application.Current.MainWindow.Content as Page;
-
-            if (currentPage != null)
+            else
             {
-                Window mainWindow = Window.GetWindow(currentPage);
-
-                if (mainWindow != null)
-                {
-                    mainWindow.Close(); // Cierra la ventana actual
-                }
+                MessageBox.Show("La ventana principal no es del tipo esperado.");
             }
         }
+
     }
 }

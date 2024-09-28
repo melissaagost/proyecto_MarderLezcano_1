@@ -85,7 +85,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
 
         }
 
-        // FUNCIONAMIENTO DE COMANDOS
+        // METODOS PARA MOSTRAR VISTAS
         private void ShowNuevoUsuario(object obj)
         {
             var nuevoUsuarioPage = new NuevoUsuario();
