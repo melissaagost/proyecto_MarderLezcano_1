@@ -52,7 +52,7 @@
             />
 
             <Button Content="Crear nuevo usuario" 
-                    Command="{Binding ShowCrearNuevoUsuarioCommand}" Margin="30,93,31,527"
+                    Command="{Binding ShowCrearNuevoUsuarioCommand}" Margin="30,150,31,470"
                     Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
             />
 
