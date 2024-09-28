@@ -12,12 +12,12 @@ using proyecto_MarderLezcano.Commands;
 using System.Windows;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Crypto.Generators;
+using proyecto_MarderLezcano.Models;
 
 namespace proyecto_MarderLezcano.ViewModels
 {
     public class FormularioInicioSesionVM : BaseViewModel, IDataErrorInfo
     {
-
         private string _usuario;
         private string _contrasena;
 
@@ -38,9 +38,9 @@ namespace proyecto_MarderLezcano.ViewModels
             {
                 _contrasena = value;
                 OnPropertyChanged(nameof(Contrasena));
-
             }
         }
+
         // Aquí puedes agregar propiedades y comandos relacionados con el formulario de inicio de sesión.
         public RelayCommand IngresarCommand { get; }
         public RelayCommand EditarContrasenaCommand { get; }
@@ -55,22 +55,29 @@ namespace proyecto_MarderLezcano.ViewModels
             MinimizeCommand = new RelayCommand(OnMinimize);
             CloseCommand = new RelayCommand(OnClose);
         }
+
         private bool CanIngresar(object parameter)
         {
             return !string.IsNullOrEmpty(Usuario) && !string.IsNullOrEmpty(Contrasena);
         }
+
         private void OnIngresar(object parameter)
         {
             if (CanIngresar(parameter))
             {
                 if (AutenticarUsuario(Usuario, Contrasena))
                 {
-                    // Abrir la ventana del menú si la autenticación es correcta
-                    var menuWindow = new Views.User.Menu();
-                    menuWindow.Show();
-                    Application.Current.MainWindow.Close();
+                    // Obtener el usuario autenticado con toda la información necesaria
+                    UsuarioM usuarioAutenticado = ObtenerUsuarioAutenticado(Usuario);
+
+                    if (usuarioAutenticado != null)
+                    {
+                        // Abrir la ventana del menú con el usuario autenticado
+                        var menuWindow = new Views.User.Menu(usuarioAutenticado);
+                        menuWindow.Show();
+                        Application.Current.MainWindow.Close();
+                    }
                 }
-               
             }
             else
             {
@@ -133,10 +140,54 @@ namespace proyecto_MarderLezcano.ViewModels
             return autenticado;
         }
 
+        // Método para obtener la información completa del usuario autenticado
+        private UsuarioM ObtenerUsuarioAutenticado(string usuario)
+        {
+            UsuarioM usuarioAutenticado = null;
+
+            // Cadena de conexión a la base de datos
+            string connectionString = "server=localhost;port=3307;database=medilink;uid=root;pwd=;";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Obtener toda la información del usuario autenticado
+                    string query = "SELECT id_usuario, dni, nombre, apellido, id_perfil FROM usuario WHERE usuario = @usuario";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuarioAutenticado = new UsuarioM
+                            {
+                                id_usuario = reader.GetInt32("id_usuario"),
+                                dni = reader.GetInt32("dni"),
+                                nombre = reader.GetString("nombre"),
+                                apellido = reader.GetString("apellido"),
+                                id_perfil = reader.GetInt32("id_perfil")
+                            };
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error al obtener los datos del usuario: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return usuarioAutenticado;
+        }
+
         private void OnEditarContrasena(object parameter)
         {
             // Lógica para manejar la edición de contraseña
         }
+
         private void OnMinimize(object parameter)
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;

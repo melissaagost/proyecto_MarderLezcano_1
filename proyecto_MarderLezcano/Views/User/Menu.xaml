@@ -11,17 +11,25 @@
         WindowStartupLocation="CenterScreen">
 
     <!-- Importa el ResourceDictionary aquí -->
-    <Window.Resources>
+    <!--<Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Estilos/Menu.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+
+        <local:RoleToVisibilityConverter x:Key="RoleToVisibilityConverter"/>
+
+    </Window.Resources>-->
+
+
+    <Window.Resources>
+        <local:RoleToVisibilityConverter x:Key="RoleToVisibilityConverter"/>
     </Window.Resources>
 
-    <Window.DataContext>
-        <vm:MenuVM/>
-    </Window.DataContext>
+
+
+
 
     <Grid>
 
@@ -36,20 +44,19 @@
 
         <!-- Menú lateral -->
         <Grid Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
-            <Button Content="Dashboard" 
-                    Command="{Binding ShowDashboardCommand}" Margin="61,123,0,497"/>
-
-
-            <!--<ItemsControl ItemsSource="{Binding MenuItems}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding Name}" 
-                                Command="{Binding Command}" 
-                                 />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>-->
             
+            <!--opciones para rol SISTEMAS-->
+            <Button Content="Dashboard" 
+                    Command="{Binding ShowDashboardCommand}" Margin="30,93,31,527"
+                   Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
+            />
+
+            <Button Content="Crear nuevo usuario" 
+                    Command="{Binding ShowCrearNuevoUsuarioCommand}" Margin="30,93,31,527"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
+            />
+
+
         </Grid>
 
         <!-- Área principal para cargar vistas -->

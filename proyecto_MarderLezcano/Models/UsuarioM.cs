@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace proyecto_MarderLezcano.Models
 {
-    class UsuarioM
+    public class UsuarioM
     {
         public int id_usuario { get; set; }
         public int dni { get; set; }

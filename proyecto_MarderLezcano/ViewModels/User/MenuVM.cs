@@ -10,6 +10,10 @@ using proyecto_MarderLezcano.Commands;
 using System.Windows;
 using Microsoft.VisualBasic;
 using System.ComponentModel;
+using System.Globalization;
+using System.Windows.Data;
+using Microsoft.VisualBasic.ApplicationServices;
+using proyecto_MarderLezcano.Views.User;
 
 
 
@@ -17,61 +21,63 @@ namespace proyecto_MarderLezcano.ViewModels.User
 {
     public class MenuVM : BaseViewModel
     {
-        public RelayCommand MinimizeCommand { get; }
+        //MANEJO DE ROLES
+        private UsuarioM _currentUser;
 
-        //por cada vista
-        public RelayCommand ShowDashboardCommand { get; }
+        public UsuarioM CurrentUser
+        {
+            get { return _currentUser; }
+            set
+            {
+                _currentUser = value;
+                OnPropertyChanged(nameof(CurrentUser));
+            }
+        }
+
+        public string UserRole
+        {
+            get
+            {
+                return CurrentUser.id_perfil switch
+                {
+                    1 => "Sistemas",
+                    2 => "Gestor",
+                    3 => "Medico",
+                    4 => "Recepcionista",
+                    _ => "Unknown"
+                };
+            }
+        }
+
+
+
+        //DECLARACION DE COMANDOS
+        public RelayCommand MinimizeCommand { get; }
         public RelayCommand CloseCommand { get; }
 
 
-        //public ObservableCollection<MenuItemModel> MenuItems { get; set; }
-        //private BaseViewModel _currentViewModel;
-        //public BaseViewModel CurrentViewModel
-        //{
-        //    get { return _currentViewModel; }
-        //    set { SetProperty(ref _currentViewModel, value); }
-        //}
+        //vistas
+        public RelayCommand ShowDashboardCommand { get; }
 
-        //public ICommand ChangeViewCommand { get; }
 
-        // Collection of dynamic items
-        //private ObservableCollection<MenuItemModel> _menuItems;
-        //public ObservableCollection<MenuItemModel> MenuItems
-        //{
-        //    get => _menuItems;
-        //    set
-        //    {
-        //        _menuItems = value;
-        //        OnPropertyChanged(nameof(MenuItems));
-        //    }
-        //}
 
-        public MenuVM()
+        //LLAMADAS A COMANDOS
+        public MenuVM(UsuarioM user)
         {
+            CurrentUser = user;
             MinimizeCommand = new RelayCommand(OnMinimize);
             CloseCommand = new RelayCommand(OnClose);
-            //por cada vista
+            //vistas
             ShowDashboardCommand = new RelayCommand(ShowDashboard);
 
-            // Inicializa los ítems del menú
-            //var MenuItems = new ObservableCollection<MenuItemModel>
-
-            //{
-            //    new MenuItemModel("Dashboard", new RelayCommand(ShowDashboard)),
-            //    //new MenuItemModel { Name = "Citas Médicas", ViewModelType = typeof(User.AppointmentsViewModel) },
-
-            //};
-
-            // Inicializa el comando para cambiar la vista
-            //ChangeViewCommand = new RelayCommand(ChangeView);
-
-            // Establece la vista inicial
-            //CurrentViewModel = new DashboardVM();
         }
 
-        // Command implementations
+        //FUNCIONAMIENTO DE COMANDOS
         private void ShowDashboard(object obj) => MessageBox.Show("New Command Executed!"); //hacer que muestre la vista con navigate to
-       
+        //private void ShowCrearNuevoUsuario(object obj) => NavigateTo(new NuevoUsuario());
+
+
+
 
 
         private void OnMinimize(object parameter)
@@ -83,5 +89,6 @@ namespace proyecto_MarderLezcano.ViewModels.User
         {
             Application.Current.MainWindow.Close();
         }
-    }
+
+        }
 }

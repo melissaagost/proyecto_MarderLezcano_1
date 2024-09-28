@@ -1,4 +1,5 @@
-﻿using proyecto_MarderLezcano.ViewModels.User;
+﻿using proyecto_MarderLezcano.Models;
+using proyecto_MarderLezcano.ViewModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,12 @@ namespace proyecto_MarderLezcano.Views.User
 {
     public partial class Menu : Window
     {
-        public Menu()
+        public Menu(UsuarioM currentUser)
         {
             InitializeComponent();
-            this.DataContext = new MenuVM();
-
+            this.DataContext = new MenuVM(currentUser);
         }
+
+
     }
 }
