@@ -12,6 +12,7 @@
     <Page.DataContext>
         <vm:NuevoUsuarioVM/>
     </Page.DataContext>
+    
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/fondobase.png" />
@@ -26,11 +27,11 @@
             <!-- Botón de minimizar -->
 
             <!-- Botón de cerrar -->
-            <Button Content="-" 
+            <Button Content="B" 
                     Width="30" 
                     Height="30" 
                     FontSize="20"
-                    Command="{Binding MinimizeCommand}"
+                    Command="{Binding GoBackCommand}"
                     Background="#fffdf0" 
                     Foreground="#407053"
                     FontWeight="Bold" 

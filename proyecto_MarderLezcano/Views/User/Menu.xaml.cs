@@ -21,7 +21,7 @@ namespace proyecto_MarderLezcano.Views.User
         public Menu(UsuarioM currentUser)
         {
             InitializeComponent();
-            this.DataContext = new MenuVM(currentUser);
+            this.DataContext = new MenuVM(currentUser, Vistas);
         }
 
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace proyecto_MarderLezcano.Models
@@ -12,13 +13,18 @@ namespace proyecto_MarderLezcano.Models
     {
         public DbSet<PerfilM> Perfiles { get; set; } // Propiedad para la tabla Perfiles
 
-        public DbSet<UsuarioM> Usuarios { get; set; } // Propiedad para la tabla usuarios?
-        public DbSet<ProvinciaM> Provincias { get; set; } // Definir el DbSet de ProvinciaM
+        public DbSet<UsuarioM> Usuarios { get; set; } // Propiedad para la tabla usuarios
+        public DbSet<ProvinciaM> Provincia { get; set; } // Definir el DbSet de ProvinciaM
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Aquí debes especificar tu cadena de conexión a la base de datos
             optionsBuilder.UseMySql("Server=localhost;Port=3307;Database=medilink;User=root;Password=;", new MySqlServerVersion(new Version(8, 0, 21)));
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Date>().HasNoKey();
         }
     }
 }

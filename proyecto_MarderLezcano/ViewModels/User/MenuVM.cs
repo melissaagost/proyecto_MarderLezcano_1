@@ -14,6 +14,8 @@ using System.Globalization;
 using System.Windows.Data;
 using Microsoft.VisualBasic.ApplicationServices;
 using proyecto_MarderLezcano.Views.User;
+using System.Windows.Controls;
+
 
 
 
@@ -21,8 +23,9 @@ namespace proyecto_MarderLezcano.ViewModels.User
 {
     public class MenuVM : BaseViewModel
     {
-        //MANEJO DE ROLES
+        // MANEJO DE ROLES Y VISTAS
         private UsuarioM _currentUser;
+        private Frame _frame;
 
         public UsuarioM CurrentUser
         {
@@ -49,36 +52,45 @@ namespace proyecto_MarderLezcano.ViewModels.User
             }
         }
 
+        // PROPIEDAD PARA EL ContentControl
+        private BaseViewModel _currentViewModel;
+        public BaseViewModel CurrentViewModel
+        {
+            get => _currentViewModel;
+            set
+            {
+                _currentViewModel = value;
+                OnPropertyChanged(nameof(CurrentViewModel));
+            }
+        }
 
-
-        //DECLARACION DE COMANDOS
+        // DECLARACIÓN DE COMANDOS
         public RelayCommand MinimizeCommand { get; }
         public RelayCommand CloseCommand { get; }
 
+        // Vistas
+        public RelayCommand ShowNuevoUsuarioCommand { get; }
 
-        //vistas
-        public RelayCommand ShowDashboardCommand { get; }
-
-
-
-        //LLAMADAS A COMANDOS
-        public MenuVM(UsuarioM user)
+        // LLAMADAS A COMANDOS
+        public MenuVM(UsuarioM user, Frame frame)
         {
-            CurrentUser = user;
-            MinimizeCommand = new RelayCommand(OnMinimize);
-            CloseCommand = new RelayCommand(OnClose);
-            //vistas
-            ShowDashboardCommand = new RelayCommand(ShowDashboard);
+                _frame = frame;
+                CurrentUser = user;
+                MinimizeCommand = new RelayCommand(OnMinimize);
+                CloseCommand = new RelayCommand(OnClose);
+
+                // Inicializamos las vistas en comandos
+                ShowNuevoUsuarioCommand = new RelayCommand(ShowNuevoUsuario);
+            
 
         }
 
-        //FUNCIONAMIENTO DE COMANDOS
-        private void ShowDashboard(object obj) => MessageBox.Show("New Command Executed!"); //hacer que muestre la vista con navigate to
-        //private void ShowCrearNuevoUsuario(object obj) => NavigateTo(new NuevoUsuario());
-
-
-
-
+        // FUNCIONAMIENTO DE COMANDOS
+        private void ShowNuevoUsuario(object obj)
+        {
+            var nuevoUsuarioPage = new NuevoUsuario();
+            _frame.Navigate(nuevoUsuarioPage); 
+        }
 
         private void OnMinimize(object parameter)
         {
@@ -89,6 +101,5 @@ namespace proyecto_MarderLezcano.ViewModels.User
         {
             Application.Current.MainWindow.Close();
         }
-
-        }
+    }
 }

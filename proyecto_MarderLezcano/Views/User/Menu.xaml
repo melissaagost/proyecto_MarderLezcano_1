@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
         xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
-        Title="Menu Principal" Width="1200" Height="650"
+        Title="Menu Principal" Width="1450" Height="725"
         WindowStyle="None" 
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
@@ -24,6 +24,7 @@
 
 
     <Window.Resources>
+
         <local:RoleToVisibilityConverter x:Key="RoleToVisibilityConverter"/>
     </Window.Resources>
 
@@ -44,43 +45,49 @@
 
         <!-- Menú lateral -->
         <Grid Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
-            
+
             <!--opciones para rol SISTEMAS-->
             <Button Content="Dashboard" 
-                    Command="{Binding ShowDashboardCommand}" Margin="30,93,31,527"
+                    Command="{Binding ShowDashboardCommand}" Margin="30,93,31,606"
                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
             />
 
             <Button Content="Crear nuevo usuario" 
-                    Command="{Binding ShowCrearNuevoUsuarioCommand}" Margin="30,150,31,470"
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="30,223,31,470"
                     Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
             />
 
+            <!--opciones para rol MEDICO-->
+            <!--opciones para rol RECEPCIONISTA-->
+            <!--opciones para rol GESTOR-->
 
         </Grid>
 
         <!-- Área principal para cargar vistas -->
-        <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10,25,13,10"/>
-        
-        <!--barra-->
-        <Button Content="-" 
-            FontSize="20"
-            Command="{Binding MinimizeCommand}"
-            Background="#fffdf0" 
-            Foreground="#407053"
-            FontWeight="Bold" 
-            BorderBrush="Transparent" Grid.Column="1" Margin="899,6,38,614" />
+        <Frame x:Name="Vistas" Grid.Column="1" Margin="10,55,10,10"/>
 
-        <Button Content="X" 
+
+        <!--barra-->
+        <Button Content="-"
+                Height="30"
+                FontSize="20"
+                Command="{Binding MinimizeCommand}"
+                Background="#60a67c"
+                Foreground="#fffdf0"
+                FontWeight="Bold" 
+                BorderBrush="Transparent" Grid.Column="1" Margin="1127,15,59,680" />
+
+        <Button Content="X"
+                Height="30"
             FontSize="16"
             Command="{Binding CloseCommand}"
-            Background="#fffdf0" 
-            Foreground="#407053"
+            Background="#60a67c"
+            Foreground="#fffdf0"
             FontWeight="Bold" 
             BorderBrush="Transparent"
-            Margin="935,6,5,614" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />
-        
-        
+            Margin="1173,15,10,680" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />
+
+
         <!-- Título en la parte superior -->
         <TextBlock 
             FontFamily="Georgia" 
@@ -94,7 +101,7 @@
             Width="212" Height="90">
             MediLink
         </TextBlock>
-        
+
     </Grid>
 
 </Window>
