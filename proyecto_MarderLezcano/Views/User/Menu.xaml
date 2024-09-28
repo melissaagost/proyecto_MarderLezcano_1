@@ -35,13 +35,11 @@
         </Grid.ColumnDefinitions>
 
         <!-- Menú lateral -->
-        <StackPanel Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
-
+        <Grid Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
             <Button Content="Dashboard" 
-                    Command="{Binding ShowDashboardCommand}" 
-            />
+                    Command="{Binding ShowDashboardCommand}" Margin="61,123,0,497"/>
 
-           
+
             <!--<ItemsControl ItemsSource="{Binding MenuItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -52,7 +50,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>-->
             
-        </StackPanel>
+        </Grid>
 
         <!-- Área principal para cargar vistas -->
         <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="1" Margin="10,25,13,10"/>

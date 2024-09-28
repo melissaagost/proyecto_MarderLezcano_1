@@ -122,17 +122,24 @@
             x:Name="FechaNacimientoDP"
             Width="190"
             Height="34"
-            SelectedDate="{Binding FechaNacimiento}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,366,0,0"/>
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="714,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Teléfono -->
         <TextBlock Text="Teléfono" Foreground="Gray" Canvas.Top="299" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,345,0,0" />
         <TextBox Canvas.Top="320" 
-         x:Name="TelefonoTB" 
-         FontFamily="Verdana" 
-         FontSize="15"
-         Padding="5" 
-         Height="34" 
-         Width="190" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="TelefonoTB_TextChanged" Text="" Margin="297,366,0,0"/>
+            x:Name="TelefonoTB" 
+            FontFamily="Verdana" 
+            FontSize="15"
+            Padding="5" 
+            Height="34" 
+            Width="190"
+            Canvas.Left="268" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding TelefonoText, UpdateSourceTrigger=PropertyChanged}"
+            Margin="297,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Correo -->
         <TextBlock Text="Correo" Foreground="Gray" Canvas.Top="299" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,345,0,0" />

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using proyecto_MarderLezcano.Commands;
 using proyecto_MarderLezcano.Models;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,21 @@ namespace proyecto_MarderLezcano.ViewModels.User
 {
     class NuevoUsuarioVM : INotifyPropertyChanged
     {
+        private string _telefonoText;
+        public string TelefonoText
+        {
+            get { return _telefonoText; }
+            set
+            {
+                if (_telefonoText != value)
+                {
+                    _telefonoText = value;
+                    OnPropertyChanged(nameof(TelefonoText));
+                    OnTelefonoTextChanged();
+                }
+            }
+        }
+
         private ObservableCollection<ProvinciaM> _listaProvincias;
         public ObservableCollection<ProvinciaM> ListaProvincias
         {
@@ -37,6 +53,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
         {
             CargarProvincias();
         }
+
         // Método para cargar las provincias desde la base de datos
         private void CargarProvincias()
         {
@@ -49,9 +66,15 @@ namespace proyecto_MarderLezcano.ViewModels.User
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void OnTelefonoTextChanged()
+        {
+            Console.WriteLine($"Telefono es {TelefonoText}");
+        }
+
     }
 }

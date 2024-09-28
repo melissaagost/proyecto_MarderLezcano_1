@@ -4,9 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
+      xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
       mc:Ignorable="d" 
-       Width="1200" Height="650"
+      Width="1200" Height="650"
       Title="Perfil">
+
+  
 
     <Grid>
 
