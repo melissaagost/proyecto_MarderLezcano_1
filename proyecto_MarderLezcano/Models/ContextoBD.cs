@@ -11,6 +11,9 @@ namespace proyecto_MarderLezcano.Models
 {
     class ContextoBD : DbContext
     {
+        public DbSet<CitaM> Citas { get; set; }
+        public DbSet<CiudadM> Ciudades { get; set; }
+        public DbSet<PerfilM> Perfiles { get; set; } // Propiedad para la tabla Perfiles
 
         public DbSet<PerfilM> Perfil { get; set; } // Propiedad para la tabla Perfiles
 

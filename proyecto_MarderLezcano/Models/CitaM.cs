@@ -12,8 +12,8 @@ namespace proyecto_MarderLezcano.Models
     {
         [Key]
         public int id_cita { get; set; }
-        public Date fecha { get; set; }
-        public Date hora { get; set; }
+        public DateTime fecha { get; set; }
+        public DateTime hora { get; set; }
         public string motivo { get; set; }
         public int id_paciente { get; set; }
         public int id_medico { get; set; }

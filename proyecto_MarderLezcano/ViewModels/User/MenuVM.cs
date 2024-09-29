@@ -63,6 +63,11 @@ namespace proyecto_MarderLezcano.ViewModels.User
                 OnPropertyChanged(nameof(CurrentViewModel));
             }
         }
+        // DECLARACIÓN DE COMANDOS REPORTES
+
+        public RelayCommand ShowReporteGestorCommand { get; }
+        public RelayCommand ShowReporteMedicoCommand { get; }
+        public RelayCommand ShowReporteRecepcionistaCommand { get; }
 
         // DECLARACIÓN DE COMANDOS
         public RelayCommand MinimizeCommand { get; }
@@ -100,6 +105,12 @@ namespace proyecto_MarderLezcano.ViewModels.User
             ShowNuevaCitaCommand = new RelayCommand(ShowNuevaCita);
             ShowNuevoPacienteCommand = new RelayCommand(ShowNuevoPaciente);
             //gestor
+
+            // REPORTES
+            ShowReporteGestorCommand = new RelayCommand(ShowReporteGestor, CanViewReporteGestor);
+            ShowReporteMedicoCommand = new RelayCommand(ShowReporteMedico, CanViewReporteMedico);
+            ShowReporteRecepcionistaCommand = new RelayCommand(ShowReporteRecepcionista, CanViewReporteRecepcionista);
+
 
         }
 
@@ -153,6 +164,43 @@ namespace proyecto_MarderLezcano.ViewModels.User
                 Application.Current.Shutdown();
             }
             // Si selecciona 'No', no hace nada y la aplicación sigue abierta
+        }
+
+        // Métodos para mostrar reportes
+        
+        private void ShowReporteGestor(object obj)
+        {
+            var reporteGestorPage = new ReporteGestor(); // Vista para reportes de gestor
+            _frame.Navigate(reporteGestorPage);
+        }
+
+        private void ShowReporteMedico(object obj)
+        {
+            var reporteMedicoPage = new ReporteMedico(); // Vista para reportes de médico
+            _frame.Navigate(reporteMedicoPage);
+        }
+
+        private void ShowReporteRecepcionista(object obj)
+        {
+            var reporteRecepcionistaPage = new ReporteRecepcionista(); // Vista para reportes de recepcionista
+            _frame.Navigate(reporteRecepcionistaPage);
+        }
+
+        // Métodos para validar si el usuario puede ver el reporte
+        
+        private bool CanViewReporteGestor(object arg)
+        {
+            return CurrentUser.id_perfil == 2; // Solo usuarios con perfil de Gestor
+        }
+
+        private bool CanViewReporteMedico(object arg)
+        {
+            return CurrentUser.id_perfil == 3; // Solo usuarios con perfil de Médico
+        }
+
+        private bool CanViewReporteRecepcionista(object arg)
+        {
+            return CurrentUser.id_perfil == 4; // Solo usuarios con perfil de Recepcionista
         }
     }
 }
