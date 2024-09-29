@@ -12,10 +12,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;  // Asegúrate de importar esto
+using System.Windows.Input;
+
 
 namespace proyecto_MarderLezcano.ViewModels.User
 {
-    class NuevoUsuarioVM : BaseViewModel //cambie el INotifyProperty por baseviewmodel pq baseviewmodel ya contiene el inotify y no afecta al funcionamiento
+    class NuevoUsuarioVM : BaseViewModel, INotifyPropertyChanged
     {
 
         private ObservableCollection<ProvinciaM> _listaProvincias;
@@ -58,8 +60,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
         public RelayCommand GoBackCommand { get; }
         public RelayCommand CloseCommand { get; }
 
-        private ObservableCollection<ProvinciaM> _listaProvincias;
-        public ObservableCollection<ProvinciaM> ListaProvincias
+ 
         private void CargarDatos()
         {
             using (var context = new ContextoBD())
@@ -68,25 +69,23 @@ namespace proyecto_MarderLezcano.ViewModels.User
                 ListaPerfiles = new ObservableCollection<PerfilM>(context.Perfiles.ToList());
             }
         }
-        public UsuarioM NuevoUsuario
+        public UsuarioM NuevoUsuario;
 
         private ProvinciaM _provinciaSeleccionada;
         public ProvinciaM ProvinciaSeleccionada
         {
-            get { return _nuevoUsuario; }
+            get { return _provinciaSeleccionada; }
             set
             {
-                _nuevoUsuario = value;
-                OnPropertyChanged(nameof(NuevoUsuario));
+                _provinciaSeleccionada = value;
+                OnPropertyChanged(nameof(ProvinciaSeleccionada));
             }
         }
 
-        public NuevoUsuarioVM()
         private void GuardarUsuario(object parameter)
         {
             CargarProvincias();
 
-            GoBackCommand = new RelayCommand(OnGoBack);
         }
 
         // Método para cargar las provincias desde la base de datos
@@ -96,7 +95,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
             // Lógica para guardar el usuario en la base de datos
             using (var context = new ContextoBD())
             {
-                var provincias = db.Provincia.ToList();
+                var provincias = db.Provincias.ToList();
                 ListaProvincias = new ObservableCollection<ProvinciaM>(provincias);
                 context.Usuarios.Add(NuevoUsuario);
                 context.SaveChanges();
