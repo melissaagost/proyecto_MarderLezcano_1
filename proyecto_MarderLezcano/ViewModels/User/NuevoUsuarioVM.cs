@@ -330,8 +330,95 @@ namespace proyecto_MarderLezcano.ViewModels.User
         {
             using (var db = new ContextoBD())
             {
-                
-                var nuevoUsuario = new UsuarioM
+
+                // Validaciones
+             
+                    // Validación de DNI
+                    if (string.IsNullOrWhiteSpace(this.dni.ToString()) || this.dni.ToString().Length != 8 || !this.dni.ToString().All(char.IsDigit))
+                    {
+                        MessageBox.Show("El DNI debe tener 8 caracteres numéricos y no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    var dniExistente = db.Usuario.FirstOrDefault(u => u.dni == this.dni);
+                    if (dniExistente != null)
+                    {
+                        MessageBox.Show($"Ya existe un usuario registrado con el DNI {this.dni}.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Fecha de Nacimiento
+                    if (this.fecha_nacimiento == DateTime.MinValue || this.fecha_nacimiento == null)
+                    {
+                        MessageBox.Show("Debe seleccionar una fecha de nacimiento.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                // Validación de Usuario
+                if (string.IsNullOrWhiteSpace(this.usuario))
+                    {
+                        MessageBox.Show("El nombre de usuario no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    var usuarioExistente = db.Usuario.FirstOrDefault(u => u.usuario == this.usuario);
+                    if (usuarioExistente != null)
+                    {
+                        MessageBox.Show("El nombre de usuario ya está en uso.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Nombre
+                    if (string.IsNullOrWhiteSpace(this.nombre) || this.nombre.Any(char.IsDigit))
+                    {
+                        MessageBox.Show("El nombre no puede estar en blanco ni contener números.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Apellido
+                    if (string.IsNullOrWhiteSpace(this.apellido) || this.apellido.Any(char.IsDigit))
+                    {
+                        MessageBox.Show("El apellido no puede estar en blanco ni contener números.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Dirección
+                    if (string.IsNullOrWhiteSpace(this.direccion))
+                    {
+                        MessageBox.Show("La dirección no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Teléfono
+                    if (string.IsNullOrWhiteSpace(this.telefono) || this.telefono.Length != 8 || !this.telefono.All(char.IsDigit))
+                    {
+                        MessageBox.Show("El teléfono debe tener 8 caracteres numéricos y no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Correo
+                    if (string.IsNullOrWhiteSpace(this.correo))
+                    {
+                        MessageBox.Show("El correo no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    var correoExistente = db.Usuario.FirstOrDefault(u => u.correo == this.correo);
+                    if (correoExistente != null)
+                    {
+                        MessageBox.Show("Ya existe un usuario registrado con el mismo correo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Validación de Contraseña
+                    if (string.IsNullOrWhiteSpace(this.contraseña))
+                    {
+                        MessageBox.Show("La contraseña no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+
+                    var nuevoUsuario = new UsuarioM
                 {
                     dni = this.dni,
                     nombre = this.nombre,
@@ -355,10 +442,52 @@ namespace proyecto_MarderLezcano.ViewModels.User
             MessageBox.Show("Usuario creado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void Cancelar(object parameter) {
-        
-        
+        private void Cancelar(object parameter)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Está seguro que desea cancelar la creación del usuario?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                
+                dni = 0;
+                OnPropertyChanged(nameof(dni));
+
+                nombre = string.Empty;
+                OnPropertyChanged(nameof(nombre));
+
+                apellido = string.Empty;
+                OnPropertyChanged(nameof(apellido));
+
+                usuario = string.Empty;
+                OnPropertyChanged(nameof(usuario));
+
+                contraseña = string.Empty;
+                OnPropertyChanged(nameof(contraseña));
+
+                telefono = string.Empty;
+                OnPropertyChanged(nameof(telefono));
+
+                correo = string.Empty;
+                OnPropertyChanged(nameof(correo));
+
+                direccion = string.Empty;
+                OnPropertyChanged(nameof(direccion));
+
+
+                ProvinciaSeleccionada = null; 
+                OnPropertyChanged(nameof(ProvinciaSeleccionada));
+
+                CiudadSeleccionada = null;    
+                OnPropertyChanged(nameof(CiudadSeleccionada));
+
+                PerfilSeleccionado = null;    
+                OnPropertyChanged(nameof(PerfilSeleccionado));
+
+                MessageBox.Show("La operación de creación de usuario ha sido cancelada.", "Operación cancelada", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
+
+
         private void OnGoBack(object parameter)
         {
             var currentWindow = Application.Current.MainWindow as proyecto_MarderLezcano.Views.User.Menu;
