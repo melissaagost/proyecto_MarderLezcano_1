@@ -1,14 +1,16 @@
 ﻿using Microsoft.Identity.Client.NativeInterop;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace proyecto_MarderLezcano.Models
 {
-    class UsuarioM
+    public class UsuarioM
     {
+        [Key]
         public int id_usuario { get; set; }
         public int dni { get; set; }
         public string nombre { get; set; }
