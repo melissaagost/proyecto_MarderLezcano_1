@@ -26,7 +26,7 @@ namespace proyecto_MarderLezcano.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Aquí debes especificar tu cadena de conexión a la base de datos
-            optionsBuilder.UseMySql("Server=localhost;Port=3307;Database=medilink;User=root;Password=;AllowZeroDateTime=True;", new MySqlServerVersion(new Version(8, 0, 21)));
+            optionsBuilder.UseMySql("Server=localhost;Port=3307;Database=medilink;User=root;Password=;", new MySqlServerVersion(new Version(8, 0, 21)));
         }
 
 

@@ -348,14 +348,14 @@ namespace proyecto_MarderLezcano.ViewModels.User
                     }
 
                     // Validación de Fecha de Nacimiento
-                    if (this.fecha_nacimiento == DateTime.MinValue || this.fecha_nacimiento == null)
+                    if (this.fecha_nacimiento == DateTime.MinValue)
                     {
                         MessageBox.Show("Debe seleccionar una fecha de nacimiento.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
 
-                // Validación de Usuario
-                if (string.IsNullOrWhiteSpace(this.usuario))
+                    // Validación de Usuario
+                    if (string.IsNullOrWhiteSpace(this.usuario))
                     {
                         MessageBox.Show("El nombre de usuario no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -396,8 +396,15 @@ namespace proyecto_MarderLezcano.ViewModels.User
                         return;
                     }
 
-                    // Validación de Correo
-                    if (string.IsNullOrWhiteSpace(this.correo))
+                    var telefonoExistente = db.Usuario.FirstOrDefault(u => u.telefono == this.telefono);
+                    if (telefonoExistente != null)
+                    {
+                        MessageBox.Show($"Ya existe un usuario registrado con el telefono {this.telefono}.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                // Validación de Correo
+                if (string.IsNullOrWhiteSpace(this.correo))
                     {
                         MessageBox.Show("El correo no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -418,7 +425,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
                     }
 
 
-                    var nuevoUsuario = new UsuarioM
+                var nuevoUsuario = new UsuarioM
                 {
                     dni = this.dni,
                     nombre = this.nombre,
@@ -429,10 +436,11 @@ namespace proyecto_MarderLezcano.ViewModels.User
                     telefono = this.telefono,
                     correo = this.correo,
                     direccion = this.direccion,
+                    status = "si",
                     id_provincia = this.ProvinciaSeleccionada.id_provincia,
                     id_ciudad = this.CiudadSeleccionada.id_ciudad,
                     id_perfil = this.PerfilSeleccionado.id_perfil,
-                    
+
                 };
 
                 db.Usuario.Add(nuevoUsuario);
