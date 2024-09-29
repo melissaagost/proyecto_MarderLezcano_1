@@ -47,46 +47,167 @@
         <Grid Background="#60a67c" Grid.Column="0" Margin="0,0,3,0">
 
             <!--opciones para rol SISTEMAS-->
-            <Button Content="Dashboard" 
-                    Command="{Binding ShowDashboardCommand}" Margin="30,93,31,606"
-                   Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
-            />
+            <Button Content="    Nuevo Usuario" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,78,0,603"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_añadir.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
 
-            <Button Content="Crear nuevo usuario" 
-                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="30,223,31,470"
-                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" 
-            />
+            <Button Content="       Administrar Usuarios" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,127,0,554"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="15"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/administrar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+            <Button Content="Backup" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,176,0,505"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_backup.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+            <Button Content="Reportes" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,225,0,456"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_reportes.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+            <Button Content="       Editar perfil" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,274,0,407"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/editar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
 
             <!--opciones para rol MEDICO-->
+            <Button Content="    Ver citas" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,323,0,358"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_añadir.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+            <Button Content="       Administrar Citas" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,421,0,260"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="15"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/administrar.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+
+            <Button Content="    Reportes clínicos" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,372,0,309"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_reportes.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
             <!--opciones para rol RECEPCIONISTA-->
+            <Button Content="    Nueva Cita" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,470,0,211"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_añadir.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+            <Button Content="    Nuevo Paciente" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,519,0,162"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_añadir.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
             <!--opciones para rol GESTOR-->
+            <Button Content="    Reportes" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,568,0,113"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="/assets/imagenes/icono_añadir.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
 
         </Grid>
 
         <!-- Área principal para cargar vistas -->
-        <Frame x:Name="Vistas" Grid.Column="1" Margin="10,55,10,10"/>
-
-
-        <!--barra-->
-        <Button Content="-"
-                Height="30"
-                FontSize="20"
-                Command="{Binding MinimizeCommand}"
-                Background="#60a67c"
-                Foreground="#fffdf0"
-                FontWeight="Bold" 
-                BorderBrush="Transparent" Grid.Column="1" Margin="1127,15,59,680" />
-
-        <Button Content="X"
-                Height="30"
-            FontSize="16"
-            Command="{Binding CloseCommand}"
-            Background="#60a67c"
-            Foreground="#fffdf0"
-            FontWeight="Bold" 
-            BorderBrush="Transparent"
-            Margin="1173,15,10,680" RenderTransformOrigin="0.48,-5.953" Grid.Column="1" />
-
+        <Frame x:Name="Vistas" Grid.Column="1" Margin="10,10,10,10"/>
 
         <!-- Título en la parte superior -->
         <TextBlock 
@@ -101,6 +222,19 @@
             Width="212" Height="90">
             MediLink
         </TextBlock>
+
+        <!--boton de salir-->
+        <Button Margin="8,680,188,10" BorderBrush="Transparent" >
+            <Button.Background>
+                <ImageBrush ImageSource="/assets/imagenes/icono_salir.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Margin="49,680,147,10" BorderBrush="Transparent" RenderTransformOrigin="0.471,0.323" >
+            <Button.Background>
+                <ImageBrush ImageSource="/assets/imagenes/icono_help.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 
