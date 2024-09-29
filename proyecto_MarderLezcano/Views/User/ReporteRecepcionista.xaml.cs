@@ -17,16 +17,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using OxyPlot.Axes;
 
 namespace proyecto_MarderLezcano.Views.User
 {
-    /// <summary>
-    /// Lógica de interacción para ReporteRecepcionista.xaml
-    /// </summary>
     public partial class ReporteRecepcionista : Page
     {
         public PlotModel CitasPlotModel { get; private set; }
         private ContextoBD _context;
+
         public ReporteRecepcionista()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace proyecto_MarderLezcano.Views.User
             // Cargar datos iniciales (puedes mostrar un periodo por defecto)
             CargarDatos(DateTime.Today.AddDays(-30), DateTime.Today);
         }
+
         private void CargarDatos(DateTime fechaInicio, DateTime fechaFin)
         {
             // Limpia el modelo anterior
@@ -44,31 +48,42 @@ namespace proyecto_MarderLezcano.Views.User
 
             // Obtiene las citas del contexto
             var citas = _context.Citas
-                .ToList()
                 .Where(c => ConvertToDateTime(c.fecha) >= fechaInicio && ConvertToDateTime(c.fecha) <= fechaFin)
                 .ToList();
 
             // Agrupar por fecha y contar citas
             var citasPorFecha = citas
-                .GroupBy(c => ConvertToDateTime(c.fecha)) // Agrupamos también aquí
+                .GroupBy(c => ConvertToDateTime(c.fecha))
                 .Select(g => new { Fecha = g.Key, Cantidad = g.Count() })
+                .OrderBy(c => c.Fecha)
                 .ToList();
 
-            // Agregar series al gráfico
-            var series = new ColumnSeries { Title = "Citas" };
+            // Crear una nueva serie de línea
+            var lineSeries = new LineSeries
+            {
+                Title = "Citas",
+                MarkerType = MarkerType.Circle,  // Agregar marcadores en los puntos
+                MarkerSize = 5,
+                MarkerStroke = OxyColors.Blue
+            };
+
+            // Agregar puntos a la serie
             foreach (var item in citasPorFecha)
             {
-                series.Items.Add(new ColumnItem(item.Cantidad));
+                lineSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(item.Fecha), item.Cantidad));
             }
 
-            CitasPlotModel.Series.Add(series);
+            // Agregar la serie al gráfico
+            CitasPlotModel.Series.Add(lineSeries);
+
+            // Actualizar el gráfico
+            CitasPlotModel.InvalidatePlot(true);
         }
 
         // Ejemplo de método de conversión
         private DateTime ConvertToDateTime(DateTime date)
         {
-            // Si ya estás usando un DateTime, no necesitas conversión adicional
-            return date;
+            return date; // Si ya tienes un DateTime, no se necesita más conversión
         }
 
         private void FiltroPeriodo_SelectionChanged(object sender, SelectionChangedEventArgs e)

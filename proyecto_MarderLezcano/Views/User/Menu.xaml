@@ -73,7 +73,7 @@
             </Button>
 
             <Button Content="Reportes" 
-                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,225,0,456"
+                    Command="{Binding ShowReporteRecepcionistaCommand}" Margin="0,225,0,456"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"

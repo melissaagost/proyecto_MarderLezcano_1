@@ -26,16 +26,6 @@
 
             <!-- Botón de cerrar / volver -->
 
-            <Button Content="X" 
-                    Width="30" 
-                    Height="30" 
-                    FontSize="16"
-                    Command="{Binding GoBackCommand}"
-                    Background="#fffdf0" 
-                    Foreground="#407053"
-                    FontWeight="Bold" 
-                    BorderBrush="Transparent"
-                    Margin="10,0,0,0" RenderTransformOrigin="0.48,-5.953" />
         </StackPanel>
 
         <Border x:Name="BNuevoUsaurio" Background="#fffdf0" 

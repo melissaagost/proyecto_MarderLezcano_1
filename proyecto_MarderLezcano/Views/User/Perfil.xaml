@@ -25,27 +25,7 @@
 
             <!-- Botón de minimizar -->
 
-            <!-- Botón de cerrar -->
-            <Button Content="-" 
-                    Width="30" 
-                    Height="30" 
-                    FontSize="20"
-                    Command="{Binding MinimizeCommand}"
-                    Background="#fffdf0" 
-                    Foreground="#407053"
-                    FontWeight="Bold" 
-                    BorderBrush="Transparent" />
-
-            <Button Content="X" 
-                    Width="30" 
-                    Height="30" 
-                    FontSize="16"
-                    Command="{Binding CloseCommand}"
-                    Background="#fffdf0" 
-                    Foreground="#407053"
-                    FontWeight="Bold" 
-                    BorderBrush="Transparent"
-                    Margin="10,0,0,0" RenderTransformOrigin="0.48,-5.953" />
+           
         </StackPanel>
 
         <Border x:Name="BEditarPerfil" Background="#fffdf0" 
