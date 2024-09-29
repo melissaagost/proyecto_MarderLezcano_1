@@ -15,6 +15,7 @@
     <Page Remove="Imagenes\**" />
   </ItemGroup>
 
+
   <ItemGroup>
     <None Remove="assets\imagenes\admin.png" />
     <None Remove="assets\imagenes\administrar.png" />
@@ -55,6 +56,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="MySql.Data" Version="9.0.0" />
+    <PackageReference Include="OxyPlot.Core" Version="2.2.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.2.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
   </ItemGroup>
 

@@ -1,0 +1,26 @@
+﻿<Page x:Class="proyecto_MarderLezcano.Views.User.ReporteRecepcionista"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
+      xmlns:oxy="http://oxyplot.org/wpf"
+      mc:Ignorable="d" 
+      Width="1200" Height="650"
+      Title="ReporteRecepcionista">
+
+    <Grid Background="Wheat">
+        <!-- Filtro de fechas -->
+        <ComboBox x:Name="FiltroPeriodo" Width="150" Height="30" VerticalAlignment="Top" Margin="20"
+                  SelectionChanged="FiltroPeriodo_SelectionChanged">
+            <ComboBoxItem Content="Día"/>
+            <ComboBoxItem Content="Semana"/>
+            <ComboBoxItem Content="Mes"/>
+            <ComboBoxItem Content="Año"/>
+        </ComboBox>
+
+        <!-- Gráfico de citas usando OxyPlot -->
+        <oxy:PlotView x:Name="CitasPlot" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="20,70,20,20"
+              Model="{Binding CitasPlotModel}" />
+    </Grid>
+</Page>
