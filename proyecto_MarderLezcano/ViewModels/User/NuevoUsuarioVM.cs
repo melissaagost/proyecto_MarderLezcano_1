@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using proyecto_MarderLezcano.Commands;
 using proyecto_MarderLezcano.Models;
+using proyecto_MarderLezcano.Views.User;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,73 +9,81 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace proyecto_MarderLezcano.ViewModels.User
 
 {
-    class NuevoUsuarioVM : INotifyPropertyChanged
+    class NuevoUsuarioVM : BaseViewModel, INotifyPropertyChanged
     {
-        private string _telefonoText;
-        public string TelefonoText
-        {
-            get { return _telefonoText; }
-            set
-            {
-                if (_telefonoText != value)
-                {
-                    _telefonoText = value;
-                    OnPropertyChanged(nameof(TelefonoText));
-                    OnTelefonoTextChanged();
-                }
-            }
-        }
 
         private ObservableCollection<ProvinciaM> _listaProvincias;
+        private ObservableCollection<CiudadM> _listaCiudades;
+        private ObservableCollection<PerfilM> _listaPerfiles;
+
+        private UsuarioM _nuevoUsuario;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public ICommand GuardarUsuarioCommand { get; set; }
+
+
         public ObservableCollection<ProvinciaM> ListaProvincias
         {
             get { return _listaProvincias; }
-            set
-            {
-                _listaProvincias = value;
-                OnPropertyChanged(nameof(ListaProvincias));
-            }
+            set { _listaProvincias = value; OnPropertyChanged(); }
         }
-        private ProvinciaM _provinciaSeleccionada;
-        public ProvinciaM ProvinciaSeleccionada
+
+        public ObservableCollection<CiudadM> ListaCiudades
         {
-            get { return _provinciaSeleccionada; }
-            set
-            {
-                _provinciaSeleccionada = value;
-                OnPropertyChanged(nameof(ProvinciaSeleccionada));
-            }
+            get { return _listaCiudades; }
+            set { _listaCiudades = value; OnPropertyChanged(); }
         }
+
+        public ObservableCollection<PerfilM> ListaPerfiles
+        {
+            get { return _listaPerfiles; }
+            set { _listaPerfiles = value; OnPropertyChanged(); }
+        }
+
         public NuevoUsuarioVM()
         {
-            CargarProvincias();
+            CargarDatos();
+            NuevoUsuario = new UsuarioM();
+            GuardarUsuarioCommand = new RelayCommand(GuardarUsuario);
         }
 
-        // Método para cargar las provincias desde la base de datos
-        private void CargarProvincias()
+        private void CargarDatos()
         {
-            using (var db = new ContextoBD())
+            using (var context = new ContextoBD())
             {
-                var provincias = db.Provincias.ToList();
-                ListaProvincias = new ObservableCollection<ProvinciaM>(provincias);
+                ListaProvincias = new ObservableCollection<ProvinciaM>(context.Provincias.ToList());
+                ListaPerfiles = new ObservableCollection<PerfilM>(context.Perfiles.ToList());
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
+        public UsuarioM NuevoUsuario
+        {
+            get { return _nuevoUsuario; }
+            set
+            {
+                _nuevoUsuario = value;
+                OnPropertyChanged(nameof(NuevoUsuario));
+            }
+        }
+        private void GuardarUsuario(object parameter)
+        {
+            // Lógica para guardar el usuario en la base de datos
+            using (var context = new ContextoBD())
+            {
+                context.Usuarios.Add(NuevoUsuario);
+                context.SaveChanges();
+            }
+        }
+        protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void OnTelefonoTextChanged()
-        {
-            Console.WriteLine($"Telefono es {TelefonoText}");
-        }
 
     }
 }

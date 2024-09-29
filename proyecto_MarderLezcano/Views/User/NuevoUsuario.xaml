@@ -73,6 +73,7 @@
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
+         Text="{Binding NuevoUsuario.nombre, UpdateSourceTrigger=PropertyChanged}"
          Height="34" 
          Width="190" HorizontalAlignment="Center" Canvas.Left="42" VerticalAlignment="Top" Margin="0,211,0,0"/>
 
@@ -84,6 +85,7 @@
          FontSize="15"
          Padding="5" 
          Height="34" 
+         Text="{Binding NuevoUsuario.apellido, UpdateSourceTrigger=PropertyChanged}"
          Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,211,0,0"/>
 
         <!-- Etiqueta y TextBox para DNI -->
@@ -94,6 +96,7 @@
          FontSize="15"
          Padding="5" 
          Height="34" 
+         Text="{Binding NuevoUsuario.dni, UpdateSourceTrigger=PropertyChanged}"
          Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,211,0,0"/>
 
         <!-- Etiqueta y TextBox para Usuario -->
@@ -103,6 +106,7 @@
               FontFamily="Verdana" 
               FontSize="15"
               Padding="5" 
+              Text="{Binding NuevoUsuario.usuario, UpdateSourceTrigger=PropertyChanged}"
               Height="34" 
               Width="190" HorizontalAlignment="Left" Canvas.Left="42" VerticalAlignment="Top" Margin="297,291,0,0"/>
 
@@ -114,6 +118,7 @@
                   FontSize="15"
                   Padding="5" 
                   Height="34" 
+                  Text="{Binding NuevoUsuario.contraseña, UpdateSourceTrigger=PropertyChanged}"
                   Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,291,0,0"/>
 
         <!-- Etiqueta y DatePicker para Fecha de Nacimiento -->
@@ -122,6 +127,7 @@
             x:Name="FechaNacimientoDP"
             Width="190"
             Height="34"
+            SelectedDate="{Binding NuevoUsuario.fecha_nacimiento, UpdateSourceTrigger=PropertyChanged}"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Margin="714,366,0,0"/>
@@ -135,10 +141,10 @@
             Padding="5" 
             Height="34" 
             Width="190"
+            Text="{Binding NuevoUsuario.telefono, UpdateSourceTrigger=PropertyChanged}"
             Canvas.Left="268" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding TelefonoText, UpdateSourceTrigger=PropertyChanged}"
             Margin="297,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Correo -->
@@ -149,6 +155,7 @@
                  FontSize="15"
                  Padding="5" 
                  Height="34" 
+                 Text="{Binding NuevoUsuario.correo, UpdateSourceTrigger=PropertyChanged}"
                  Width="190" Canvas.Left="42" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Dirección -->
@@ -159,6 +166,7 @@
                  FontSize="15"
                  Padding="5" 
                  Height="34" 
+                 Text="{Binding NuevoUsuario.direccion, UpdateSourceTrigger=PropertyChanged}"
                  Width="190" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,445,0,0"/>
 
         <!-- Etiqueta y ComboBox para Provincia -->
@@ -167,9 +175,9 @@
           Width="190" 
           Height="34"
           ItemsSource="{Binding ListaProvincias}"
-          SelectedItem="{Binding ProvinciaSeleccionada}"
-          DisplayMemberPath="Nombre"
-          SelectedValuePath="IdProvincia"
+          DisplayMemberPath="nombre"
+          SelectedValuePath="id_provincia"
+          SelectedValue="{Binding NuevoUsuario.id_provincia, UpdateSourceTrigger=PropertyChanged}"
           FontFamily="Verdana"
           FontSize="15" 
           HorizontalAlignment="Left" 
@@ -182,9 +190,9 @@
               Width="188" 
               Height="34"
               ItemsSource="{Binding ListaCiudades}"
-              SelectedItem="{Binding CiudadSeleccionada}"
-              DisplayMemberPath="Nombre"
+              DisplayMemberPath="nombre"
               SelectedValuePath="id_ciudad"
+              SelectedValue="{Binding NuevoUsuario.id_ciudad, UpdateSourceTrigger=PropertyChanged}"
               FontFamily="Verdana"
               FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,445,0,0"/>
 
@@ -196,10 +204,9 @@
           Width="190" 
           Height="34"
           ItemsSource="{Binding ListaPerfiles}"
-          SelectedItem="{Binding PerfilSeleccionado}"
-          DisplayMemberPath="Nombre"
+          DisplayMemberPath="nombre"
           SelectedValuePath="id_perfil"
-          FontFamily="Verdana"
+          SelectedValue="{Binding NuevoUsuario.id_perfil, UpdateSourceTrigger=PropertyChanged}"          FontFamily="Verdana"
           FontSize="15" 
           Canvas.Left="42" 
           HorizontalAlignment="Left" 
@@ -215,6 +222,7 @@
                 FontFamily="Georgia"
                 FontWeight="bold"
                 Background="#60a67c"
+                Command="{Binding GuardarUsuarioCommand}"
                 Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,515,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="Button">

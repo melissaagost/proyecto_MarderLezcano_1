@@ -15,7 +15,7 @@ namespace proyecto_MarderLezcano.Models
         public string apellido { get; set; }
         public string usuario { get; set; }
         public string contraseña { get; set; }
-        public Date fecha_nacimiento { get; set; }
+        public DateTime fecha_nacimiento { get; set; }
         public string telefono { get; set; }
         public string correo { get; set; }
         public string direccion { get; set; }

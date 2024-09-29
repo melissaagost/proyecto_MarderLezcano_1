@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using proyecto_MarderLezcano.Views.User;
 
 
 namespace proyecto_MarderLezcano.Models
 {
     class ContextoBD : DbContext
     {
+        public DbSet<ProvinciaM> Provincias { get; set; }
+        public DbSet<CiudadM> Ciudades { get; set; }
         public DbSet<PerfilM> Perfiles { get; set; } // Propiedad para la tabla Perfiles
-
         public DbSet<UsuarioM> Usuarios { get; set; } // Propiedad para la tabla usuarios?
-        public DbSet<ProvinciaM> Provincias { get; set; } // Definir el DbSet de ProvinciaM
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
