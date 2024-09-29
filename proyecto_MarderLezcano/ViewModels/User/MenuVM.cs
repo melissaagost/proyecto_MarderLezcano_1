@@ -108,9 +108,9 @@ namespace proyecto_MarderLezcano.ViewModels.User
             //gestor
 
             // REPORTES
-            ShowReporteGestorCommand = new RelayCommand(ShowReporteGestor, CanViewReporteGestor);
-            ShowReporteMedicoCommand = new RelayCommand(ShowReporteMedico, CanViewReporteMedico);
-            ShowReporteRecepcionistaCommand = new RelayCommand(ShowReporteRecepcionista, CanViewReporteRecepcionista);
+            ShowReporteGestorCommand = new RelayCommand(ShowReporteGestor);
+            ShowReporteMedicoCommand = new RelayCommand(ShowReporteMedico);
+            ShowReporteRecepcionistaCommand = new RelayCommand(ShowReporteRecepcionista);
 
 
         }
@@ -186,21 +186,6 @@ namespace proyecto_MarderLezcano.ViewModels.User
             _frame.Navigate(reporteRecepcionistaPage);
         }
 
-        // Métodos para validar si el usuario puede ver el reporte
         
-        private bool CanViewReporteGestor(object arg)
-        {
-            return CurrentUser.id_perfil == 2; // Solo usuarios con perfil de Gestor
-        }
-
-        private bool CanViewReporteMedico(object arg)
-        {
-            return CurrentUser.id_perfil == 3; // Solo usuarios con perfil de Médico
-        }
-
-        private bool CanViewReporteRecepcionista(object arg)
-        {
-            return CurrentUser.id_perfil == 4; // Solo usuarios con perfil de Recepcionista
-        }
     }
 }
