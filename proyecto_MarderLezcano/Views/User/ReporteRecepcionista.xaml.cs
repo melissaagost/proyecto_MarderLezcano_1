@@ -47,9 +47,13 @@ namespace proyecto_MarderLezcano.Views.User
             CitasPlotModel.Series.Clear();
 
             // Obtiene las citas del contexto
-            var citas = _context.Citas
-                .Where(c => ConvertToDateTime(c.fecha) >= fechaInicio && ConvertToDateTime(c.fecha) <= fechaFin)
-                .ToList();
+           // var citas = _context.Citas
+               // .Where(c => ConvertToDateTime(c.fecha) >= fechaInicio && ConvertToDateTime(c.fecha) <= fechaFin)
+             //   .ToList();
+
+            var citas = _context.Cita
+               .Where(c => c.fecha >= fechaInicio && c.fecha <= fechaFin)
+               .ToList();
 
             // Agrupar por fecha y contar citas
             var citasPorFecha = citas

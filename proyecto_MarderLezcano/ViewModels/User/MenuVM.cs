@@ -68,7 +68,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
         public RelayCommand ShowReporteMedicoCommand { get; }
         public RelayCommand ShowReporteRecepcionistaCommand { get; }
 
-        // DECLARACIÓN DE COMANDOS
+        // DECLARACIÓN DE COMANDOS CERRAR/MIN
         public RelayCommand MinimizeCommand { get; }
         public RelayCommand CloseCommand { get; }
 
@@ -78,11 +78,13 @@ namespace proyecto_MarderLezcano.ViewModels.User
         //USUARIO
         public RelayCommand ShowNuevoUsuarioCommand { get; }
         public RelayCommand ShowListadoUsuariosCommand { get; }
+
         //MEDICO
         //RECEPCIONISTA
         public RelayCommand ShowListadoCitasCommand { get; }
         public RelayCommand ShowNuevoPacienteCommand { get; }
         public RelayCommand ShowNuevaCitaCommand { get; }
+
         //GESTOR
 
         // LLAMADAS A COMANDOS
@@ -107,7 +109,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
 
             //gestor
 
-            // REPORTES
+            // reportes
             ShowReporteGestorCommand = new RelayCommand(ShowReporteGestor);
             ShowReporteMedicoCommand = new RelayCommand(ShowReporteMedico);
             ShowReporteRecepcionistaCommand = new RelayCommand(ShowReporteRecepcionista);

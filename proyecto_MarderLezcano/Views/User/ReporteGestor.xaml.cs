@@ -31,14 +31,14 @@ namespace proyecto_MarderLezcano.Views.User
             CitasPorMedicoPlotModel.Series.Clear();
 
             // Obtener las citas en el rango de fechas seleccionado
-            var citas = _context.Citas
+            var citas = _context.Cita
                 .Include(c => c.id_medico) // Asegúrate de que incluyes los datos del médico
                 .Where(c => ConvertToDateTime(c.fecha) >= fechaInicio && ConvertToDateTime(c.fecha) <= fechaFin)
                 .ToList();
 
             // Agrupar las citas por médico
             var citasPorMedico = citas
-                .GroupBy(c => c.id_medico.nombre) // Agrupamos por el nombre del médico
+                .GroupBy(c => c.id_medico) // Agrupamos por el id
                 .Select(g => new { Medico = g.Key, Cantidad = g.Count() })
                 .ToList();
 

@@ -47,19 +47,10 @@
     <None Remove="Views\pexels-shvetsa-3683041-Photoroom.png" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Page Remove="Views\User\NuevoUsuario.xaml" />
-  </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Fuentes\" />
     <Folder Include="Helpers\" />
     <Folder Include="Utilidades\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\User\NuevoUsuario.xaml" />
   </ItemGroup>
 
   <ItemGroup>
