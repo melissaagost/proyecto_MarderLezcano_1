@@ -34,7 +34,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
             using (var db = new ContextoBD())
             {
                 // Supongamos que tienes un método para obtener el usuario logueado
-                Usuario = db.Usuarios.FirstOrDefault(u => u.id_usuario == ObtenerUsuarioLogueadoId());
+                Usuario = db.Usuario.FirstOrDefault(u => u.id_usuario == ObtenerUsuarioLogueadoId());
             }
         }
 

@@ -60,6 +60,7 @@
         <TextBlock Text="Nombre/s" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,190,0,0" />
         <TextBox Canvas.Top="81" 
          x:Name="NombreTB" 
+                 Text="{Binding nombre, UpdateSourceTrigger=PropertyChanged}"
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
@@ -70,6 +71,7 @@
         <TextBlock Text="Apellido/s" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="714,190,417,437" />
         <TextBox Canvas.Left="268" Canvas.Top="81" 
          x:Name="ApellidoTB" 
+                 Text="{Binding apellido, UpdateSourceTrigger=PropertyChanged}"
          FontFamily="Verdana" 
          FontSize="15"
          Padding="5" 
@@ -79,6 +81,7 @@
         <!-- Etiqueta y TextBox para DNI -->
         <TextBlock Text="DNI" Foreground="Gray" Canvas.Left="493" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,190,0,0" />
         <TextBox Canvas.Left="492" Canvas.Top="81" 
+                 Text="{Binding dni, UpdateSourceTrigger=PropertyChanged}"
          x:Name="DNITB" 
          FontFamily="Verdana" 
          FontSize="15"
@@ -89,6 +92,7 @@
         <!-- Etiqueta y TextBox para Usuario -->
         <TextBlock Text="Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,270,0,0" />
         <TextBox Canvas.Top="81" 
+                 Text="{Binding usuario, UpdateSourceTrigger=PropertyChanged}"
               x:Name="UsuarioTB" 
               FontFamily="Verdana" 
               FontSize="15"
@@ -99,7 +103,8 @@
         <!-- Etiqueta y TextBox para Contraseña -->
         <TextBlock Text="Contraseña" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" Margin="506,270,625,357" />
         <TextBox Canvas.Left="268" Canvas.Top="81" 
-                  x:Name="ContraseñaTB" 
+                 x:Name="ContraseñaTB" 
+                 Text="{Binding contraseña, UpdateSourceTrigger=PropertyChanged}"
                   FontFamily="Verdana" 
                   FontSize="15"
                   Padding="5" 
@@ -109,16 +114,19 @@
         <!-- Etiqueta y DatePicker para Fecha de Nacimiento -->
         <TextBlock Text="Fecha de Nacimiento" Foreground="Gray" Canvas.Left="268" Canvas.Top="139" Margin="714,345,342,283" />
         <DatePicker Canvas.Left="268" Canvas.Top="160" 
-            x:Name="FechaNacimientoDP"
-            Width="190"
-            Height="34"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Margin="714,366,0,0"/>
+                    SelectedDate="{Binding fecha_Nacimiento, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    x:Name="FechaNacimientoDP"
+                    SelectedDateFormat="Short"
+                    Width="190"
+                    Height="34"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="714,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Teléfono -->
         <TextBlock Text="Teléfono" Foreground="Gray" Canvas.Top="299" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,345,0,0" />
         <TextBox Canvas.Top="320" 
+                 Text="{Binding telefono, UpdateSourceTrigger=PropertyChanged}"
             x:Name="TelefonoTB" 
             FontFamily="Verdana" 
             FontSize="15"
@@ -128,13 +136,13 @@
             Canvas.Left="268" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding TelefonoText, UpdateSourceTrigger=PropertyChanged}"
             Margin="297,366,0,0"/>
 
         <!-- Etiqueta y TextBox para Correo -->
         <TextBlock Text="Correo" Foreground="Gray" Canvas.Top="299" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,345,0,0" />
         <TextBox Canvas.Top="320" 
                  x:Name="CorreoTB" 
+                 Text="{Binding correo, UpdateSourceTrigger=PropertyChanged}"
                  FontFamily="Verdana" 
                  FontSize="15"
                  Padding="5" 
@@ -145,6 +153,7 @@
         <TextBlock Text="Dirección" Foreground="Gray" Canvas.Top="216" Canvas.Left="42" Margin="714,420,429,213" />
         <TextBox Canvas.Top="237" 
                  x:Name="DireccionTB" 
+                 Text="{Binding direccion, UpdateSourceTrigger=PropertyChanged}"
                  FontFamily="Verdana" 
                  FontSize="15"
                  Padding="5" 
@@ -154,26 +163,25 @@
         <!-- Etiqueta y ComboBox para Provincia -->
         <TextBlock Text="Provincia" Foreground="Gray" Canvas.Top="216" Canvas.Left="269" Margin="297,420,847,201" />
         <ComboBox x:Name="ProvinciaCB"
-          Width="190" 
-          Height="34"
-          ItemsSource="{Binding ListaProvincias}"
-          SelectedItem="{Binding ProvinciaSeleccionada}"
-          DisplayMemberPath="Nombre"
-          SelectedValuePath="IdProvincia"
-          FontFamily="Verdana"
-          FontSize="15" 
-          HorizontalAlignment="Left" 
-          VerticalAlignment="Top" 
-          Margin="297,444,0,0"/>
+                  Width="190" 
+                  Height="34"
+                  ItemsSource="{Binding ListaProvincias}" 
+                  DisplayMemberPath="nombre" 
+                  SelectedItem="{Binding ProvinciaSeleccionada}"
+                  SelectedValuePath="id_provincia"
+                  FontFamily="Verdana"
+                  FontSize="15" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Top" 
+                  Margin="297,444,0,0"/>
         <!-- Etiqueta y ComboBox para Ciudad -->
         <TextBlock Text="Ciudad" Foreground="Gray" Canvas.Left="493" Canvas.Top="299" Margin="506,420,644,205" />
         <ComboBox x:Name="CiudadCB"
               Canvas.Left="493" Canvas.Top="320" 
               Width="188" 
               Height="34"
-              ItemsSource="{Binding ListaCiudades}"
-              SelectedItem="{Binding CiudadSeleccionada}"
-              DisplayMemberPath="Nombre"
+              ItemsSource="{Binding ListaCiudades}" DisplayMemberPath="nombre" 
+              SelectedItem="{Binding CiudadSeleccionada}" 
               SelectedValuePath="id_ciudad"
               FontFamily="Verdana"
               FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,445,0,0"/>
@@ -187,7 +195,7 @@
           Height="34"
           ItemsSource="{Binding ListaPerfiles}"
           SelectedItem="{Binding PerfilSeleccionado}"
-          DisplayMemberPath="Nombre"
+          DisplayMemberPath="nombre"
           SelectedValuePath="id_perfil"
           FontFamily="Verdana"
           FontSize="15" 
@@ -197,7 +205,8 @@
           Margin="714,291,0,0"/>
 
         <!--botnes guardar/cancelar-->
-        <Button x:Name="BCrearUsuario" 
+        <Button x:Name="BCrearUsuario"
+                Command="{Binding CrearUsuarioCommand}"
                 Content="Crear"
                 Width="194" Height="50" 
                 Canvas.Left="309" Canvas.Top="432"
@@ -206,6 +215,7 @@
                 FontWeight="bold"
                 Background="#60a67c"
                 Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="392,515,0,0">
+            
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 
@@ -217,6 +227,7 @@
                     </Border>
                 </ControlTemplate>
             </Button.Template>
+            
         </Button>
 
         <Button Content="Cancelar"

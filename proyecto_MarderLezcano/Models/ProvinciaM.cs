@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace proyecto_MarderLezcano.Models
 {
-    class ProvinciaM
+    public class ProvinciaM
     {
-        [Key]
-        public int id_provincia { get; set; }
-        public string nombre { get; set; }
+            [Key]
+            public int id_provincia { get; set; }
+            public string nombre { get; set; }
+
+        //una provincia puede tener muchos usuarios
+        public ICollection<UsuarioM> Usuarios { get; set; }
 
     }
 }

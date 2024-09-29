@@ -21,11 +21,17 @@ namespace proyecto_MarderLezcano.Models
         public string telefono { get; set; }
         public string correo { get; set; }
         public string direccion { get; set; }
-        public int id_provincia { get; set; }
-        public int id_ciudad { get; set; }
-        public int id_perfil { get; set; }
 
-    
+        // Claves foráneas
+        public int id_provincia { get; set; } // Propiedad de clave foránea
+        public ProvinciaM Provincia { get; set; } // Relación de navegación hacia la entidad Provincia
+
+        public int id_ciudad { get; set; } // Propiedad de clave foránea
+        public CiudadM Ciudad { get; set; } // Relación de navegación hacia la entidad Ciudad
+
+        public int id_perfil { get; set; } // Propiedad de clave foránea
+        public PerfilM Perfil { get; set; } // Relación de navegación hacia la entidad Perfil
+
 
     }
 }
