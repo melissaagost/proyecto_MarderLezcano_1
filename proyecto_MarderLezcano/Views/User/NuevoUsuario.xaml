@@ -114,7 +114,7 @@
         <!-- Etiqueta y DatePicker para Fecha de Nacimiento -->
         <TextBlock Text="Fecha de Nacimiento" Foreground="Gray" Canvas.Left="268" Canvas.Top="139" Margin="714,345,342,283" />
         <DatePicker Canvas.Left="268" Canvas.Top="160" 
-                    SelectedDate="{Binding fecha_Nacimiento, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    SelectedDate="{Binding fecha_nacimiento, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     x:Name="FechaNacimientoDP"
                     SelectedDateFormat="Short"
                     Width="190"

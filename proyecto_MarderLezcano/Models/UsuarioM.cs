@@ -22,6 +22,8 @@ namespace proyecto_MarderLezcano.Models
         public string correo { get; set; }
         public string direccion { get; set; }
 
+        public string status { get; set; }
+
         // Claves foráneas
         public int id_provincia { get; set; } // Propiedad de clave foránea
         public ProvinciaM Provincia { get; set; } // Relación de navegación hacia la entidad Provincia
