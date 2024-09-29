@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace proyecto_MarderLezcano.Models
 {
-    class CiudadM
+    public class CiudadM
     {
         [Key]
         public int id_ciudad { get; set; }
 
         public string nombre { get; set; }
+
+        public ICollection<UsuarioM> Usuarios { get; set; }
     }
 }
