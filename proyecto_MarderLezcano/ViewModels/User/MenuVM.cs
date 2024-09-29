@@ -64,7 +64,6 @@ namespace proyecto_MarderLezcano.ViewModels.User
             }
         }
         // DECLARACIÓN DE COMANDOS REPORTES
-
         public RelayCommand ShowReporteGestorCommand { get; }
         public RelayCommand ShowReporteMedicoCommand { get; }
         public RelayCommand ShowReporteRecepcionistaCommand { get; }
@@ -100,10 +99,12 @@ namespace proyecto_MarderLezcano.ViewModels.User
             ShowNuevoUsuarioCommand = new RelayCommand(ShowNuevoUsuario);
             ShowListadoUsuariosCommand = new RelayCommand(ShowListadoUsuarios);
             //medico
+
             //recepcionista
             ShowListadoCitasCommand = new RelayCommand(ShowListadoCitas);
             ShowNuevaCitaCommand = new RelayCommand(ShowNuevaCita);
             ShowNuevoPacienteCommand = new RelayCommand(ShowNuevoPaciente);
+
             //gestor
 
             // REPORTES
@@ -163,7 +164,6 @@ namespace proyecto_MarderLezcano.ViewModels.User
             {
                 Application.Current.Shutdown();
             }
-            // Si selecciona 'No', no hace nada y la aplicación sigue abierta
         }
 
         // Métodos para mostrar reportes

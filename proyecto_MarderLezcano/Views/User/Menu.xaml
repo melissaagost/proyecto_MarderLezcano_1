@@ -72,19 +72,7 @@
                 </Button.Background>
             </Button>
 
-            <Button Content="Reportes" 
-                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,225,0,456"
-                    FontFamily="Verdana"
-                    Foreground="#fffdf0"
-                    FontSize="18"
-                    BorderBrush="#fffdf0"
-                    BorderThickness="2"
-                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}" HorizontalAlignment="Center" Width="209" 
->
-                <Button.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/icono_reportes.png" Stretch="Uniform" AlignmentX="Left"/>
-                </Button.Background>
-            </Button>
+            
 
             <Button Content="       Editar perfil" 
                     Command="{Binding ShowEditarPerfilCommand}" Margin="0,274,0,407"
@@ -181,10 +169,25 @@
                     FontSize="18"
                     BorderBrush="#fffdf0"
                     BorderThickness="2"
-                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}" HorizontalAlignment="Center" Width="209" 
-            >
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}" HorizontalAlignment="Center" Width="209" >
+                
+                
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/icono-add.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+            <Button Content="Reportes Recep" 
+                    Command="{Binding ShowReporteRecepcionistaCommand}" Margin="0,225,0,456"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}" HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/icono_reportes.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
             </Button>
 
@@ -196,7 +199,7 @@
             </Button>
 
             <!--opciones para rol GESTOR-->
-            <Button Content="    Reportes" 
+            <Button Content="    Reportes Gestor" 
                     Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,568,0,113"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
