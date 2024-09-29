@@ -68,8 +68,18 @@ namespace proyecto_MarderLezcano.ViewModels.User
         public RelayCommand MinimizeCommand { get; }
         public RelayCommand CloseCommand { get; }
 
-        // Vistas
+        // DECLARACION DE VISTAS
+        //GENERALES (PARA TODOS LOS USERS)
+        public RelayCommand ShowEditarPerfilCommand { get; }
+        //USUARIO
         public RelayCommand ShowNuevoUsuarioCommand { get; }
+        public RelayCommand ShowListadoUsuariosCommand { get; }
+        //MEDICO
+        //RECEPCIONISTA
+        public RelayCommand ShowListadoCitasCommand { get; }
+        public RelayCommand ShowNuevoPacienteCommand { get; }
+        public RelayCommand ShowNuevaCitaCommand { get; }
+        //GESTOR
 
         // LLAMADAS A COMANDOS
         public MenuVM(UsuarioM user, Frame frame)
@@ -79,19 +89,56 @@ namespace proyecto_MarderLezcano.ViewModels.User
                 MinimizeCommand = new RelayCommand(OnMinimize);
                 CloseCommand = new RelayCommand(OnClose);
 
-                // Inicializamos las vistas en comandos
-                ShowNuevoUsuarioCommand = new RelayCommand(ShowNuevoUsuario);
-            
+            // Inicializamos las vistas en comandos
+            ShowEditarPerfilCommand = new RelayCommand(ShowEditarPerfil);
+            //usuarios
+            ShowNuevoUsuarioCommand = new RelayCommand(ShowNuevoUsuario);
+            ShowListadoUsuariosCommand = new RelayCommand(ShowListadoUsuarios);
+            //medico
+            //recepcionista
+            ShowListadoCitasCommand = new RelayCommand(ShowListadoCitas);
+            ShowNuevaCitaCommand = new RelayCommand(ShowNuevaCita);
+            ShowNuevoPacienteCommand = new RelayCommand(ShowNuevoPaciente);
+            //gestor
 
         }
 
-        // METODOS PARA MOSTRAR VISTAS
+        //METODOS VISTAS GENERALES
+        private void ShowEditarPerfil(object obj)
+        {
+            var nuevoUsuarioPage = new EditarPerfil();
+            _frame.Navigate(nuevoUsuarioPage);
+        }
+        // METODOS PARA MOSTRAR VISTAS USUARIO
         private void ShowNuevoUsuario(object obj)
         {
             var nuevoUsuarioPage = new NuevoUsuario();
             _frame.Navigate(nuevoUsuarioPage); 
         }
 
+        private void ShowListadoUsuarios(object obj)
+        {
+            var nuevoUsuarioPage = new ListadoUsuarios();
+            _frame.Navigate(nuevoUsuarioPage);
+        }
+        // METODOS PARA MOSTRAR VISTAS MEDICO
+        // METODOS PARA MOSTRAR VISTAS RECPCIONISTA
+        private void ShowNuevoPaciente(object obj)
+        {
+            var nuevoUsuarioPage = new NuevoPaciente();
+            _frame.Navigate(nuevoUsuarioPage);
+        }
+        private void ShowNuevaCita(object obj)
+        {
+            var nuevoUsuarioPage = new ProgramarCita();
+            _frame.Navigate(nuevoUsuarioPage);
+        }
+        private void ShowListadoCitas(object obj)
+        {
+            var nuevoUsuarioPage = new ListadoCitas();
+            _frame.Navigate(nuevoUsuarioPage);
+        }
+        // METODOS PARA MOSTRAR VISTAS GESTOR
         private void OnMinimize(object parameter)
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
@@ -99,7 +146,13 @@ namespace proyecto_MarderLezcano.ViewModels.User
 
         private void OnClose(object parameter)
         {
-            Application.Current.MainWindow.Close();
+            MessageBoxResult result = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+            // Si selecciona 'No', no hace nada y la aplicación sigue abierta
         }
     }
 }

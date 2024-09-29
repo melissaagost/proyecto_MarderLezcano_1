@@ -16,11 +16,34 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="assets\imagenes\admin.png" />
+    <None Remove="assets\imagenes\administrar.png" />
+    <None Remove="assets\imagenes\backup.png" />
+    <None Remove="assets\imagenes\editar-perfil.png" />
+    <None Remove="assets\imagenes\editar.png" />
     <None Remove="assets\imagenes\fondobase.png" />
     <None Remove="assets\imagenes\formulario_inicio.png" />
+    <None Remove="assets\imagenes\icono-add.png" />
+    <None Remove="assets\imagenes\icono-edit.png" />
+    <None Remove="assets\imagenes\icono_añadir.png" />
+    <None Remove="assets\imagenes\icono_backup.png" />
+    <None Remove="assets\imagenes\icono_help.png" />
+    <None Remove="assets\imagenes\icono_medico.png" />
+    <None Remove="assets\imagenes\icono_reportes.png" />
+    <None Remove="assets\imagenes\icono_reportes2.png" />
+    <None Remove="assets\imagenes\icono_salir.png" />
     <None Remove="assets\imagenes\inicio.png" />
+    <None Remove="assets\imagenes\lista.png" />
+    <None Remove="assets\imagenes\medic.png" />
+    <None Remove="assets\imagenes\nueva-cita.png" />
+    <None Remove="assets\imagenes\reporte-clinico.png" />
+    <None Remove="assets\imagenes\reportes-gestor.png" />
+    <None Remove="assets\imagenes\rol-gestor.png" />
+    <None Remove="assets\imagenes\rol-medico.png" />
+    <None Remove="assets\imagenes\rol-recep.png" />
+    <None Remove="assets\imagenes\rol-sistemas.png" />
+    <None Remove="assets\imagenes\ver-citas.png" />
     <None Remove="Views\pexels-shvetsa-3683041-Photoroom.png" />
-    <None Remove="Views\User\logout_24dp_E8EAED_FILL0_wght100_GRAD200_opsz40.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +59,33 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="assets\imagenes\admin.png" />
+    <Resource Include="assets\imagenes\administrar.png" />
+    <Resource Include="assets\imagenes\backup.png" />
+    <Resource Include="assets\imagenes\editar-perfil.png" />
+    <Resource Include="assets\imagenes\editar.png" />
     <Resource Include="assets\imagenes\fondobase.png" />
     <Resource Include="assets\imagenes\formulario_inicio.png" />
+    <Resource Include="assets\imagenes\icono-add.png" />
+    <Resource Include="assets\imagenes\icono-edit.png" />
+    <Resource Include="assets\imagenes\icono_añadir.png" />
+    <Resource Include="assets\imagenes\icono_backup.png" />
+    <Resource Include="assets\imagenes\icono_help.png" />
+    <Resource Include="assets\imagenes\icono_medico.png" />
+    <Resource Include="assets\imagenes\icono_reportes.png" />
+    <Resource Include="assets\imagenes\icono_reportes2.png" />
+    <Resource Include="assets\imagenes\icono_salir.png" />
     <Resource Include="assets\imagenes\inicio.png" />
-    <Resource Include="Views\User\logout_24dp_E8EAED_FILL0_wght100_GRAD200_opsz40.png" />
+    <Resource Include="assets\imagenes\lista.png" />
+    <Resource Include="assets\imagenes\medic.png" />
+    <Resource Include="assets\imagenes\nueva-cita.png" />
+    <Resource Include="assets\imagenes\reporte-clinico.png" />
+    <Resource Include="assets\imagenes\reportes-gestor.png" />
+    <Resource Include="assets\imagenes\rol-gestor.png" />
+    <Resource Include="assets\imagenes\rol-medico.png" />
+    <Resource Include="assets\imagenes\rol-recep.png" />
+    <Resource Include="assets\imagenes\rol-sistemas.png" />
+    <Resource Include="assets\imagenes\ver-citas.png" />
   </ItemGroup>
 
 </Project>
