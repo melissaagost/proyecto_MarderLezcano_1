@@ -9,107 +9,135 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
+using static Mysqlx.Crud.Order.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace proyecto_MarderLezcano.ViewModels.User
 {
     public class PerfilVM : BaseViewModel
     {
-        private string _usuario;
-        public string usuario
+
+        private int idUsuario;
+        public int IdUsuario
         {
-            get { return _usuario; }
+            get { return idUsuario; }
             set
             {
-                if (_usuario != value)
-                {
-                    _usuario = value;
-                    OnPropertyChanged(nameof(usuario));
-                }
+                idUsuario = value;
+                OnPropertyChanged(nameof(IdUsuario));
             }
         }
 
-        private string _contraseña;
-        public string contraseña
+
+        private string nombreUsuario;
+        public string NombreUsuario
         {
-            get { return _contraseña; }
+            get { return nombreUsuario; }
             set
             {
-                if (_contraseña != value)
-                {
-                    _contraseña = value;
-                    OnPropertyChanged(nameof(contraseña));
-                }
+                nombreUsuario = value;
+                OnPropertyChanged(nameof(NombreUsuario));
             }
         }
-        public RelayCommand GuardarCommand { get; }
 
-        public RelayCommand CancelarCommand { get; }
+     
+
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                email = value;
+                OnPropertyChanged(nameof(Email));
+            }
+        }
+
+        private string telefono;
+        public string Telefono
+        {
+            get { return telefono; }
+            set
+            {
+                telefono = value;
+                OnPropertyChanged(nameof(Telefono));
+            }
+        }
+
+        private string direccion;
+        public string Direccion
+        {
+            get { return direccion; }
+            set
+            {
+                direccion = value;
+                OnPropertyChanged(nameof(Direccion));
+            }
+        }
+
+        private string contraseña;
+        public string Contraseña
+        {
+            get { return contraseña; }
+            set
+            {
+                contraseña = value;
+                OnPropertyChanged(nameof(Contraseña));
+            }
+        }
+        public ICommand GuardarCommand { get; set; }
+
         public PerfilVM()
         {
-            GuardarCommand = new RelayCommand(Guardar);
-            CancelarCommand = new RelayCommand(Cancelar);
+            GuardarCommand = new RelayCommand(Guardar, CanGuardar);
         }
 
-        // Método para cargar la información del usuario
-        public void CargarDatosUsuario(int idUsuario)
+
+        private void Guardar(object parameter)
         {
-            using (var context = new ContextoBD())
+            try
             {
-                var usuario = context.Usuario.Find(idUsuario);
-
-                if (usuario != null)
+                using (var context = new ContextoBD())
                 {
-                    Usuario = usuario.usuario;
-                    Correo = usuario.correo;
-                    Telefono = usuario.telefono;
-                    Direccion = usuario.direccion;
-                    // No cargamos la contraseña por seguridad
-                }
-            }
-        }
+                    var usuario = context.Usuario.FirstOrDefault(u => u.id_usuario == IdUsuario);
 
-       
-        private void Guardar()
-        {
-            using (var context = new ContextoBD())
-            {
-                var usuario = context.Usuario.FirstOrDefault(u => u.usuario == Usuario);
-
-                if (usuario != null)
-                {
-                    usuario.correo = Correo;
-                    usuario.telefono = Telefono;
-                    usuario.direccion = Direccion;
-
-                    if (!string.IsNullOrWhiteSpace(Contrasena))
+                    if (usuario != null)
                     {
-                        usuario.contraseña = Contrasena; 
+                        context.Attach(usuario);
+                        usuario.usuario = NombreUsuario;
+                        usuario.correo = Email;
+                        usuario.telefono = Telefono;
+                        usuario.direccion = Direccion;
+                        usuario.contraseña = Contraseña;
+
+                        context.SaveChanges();
                     }
+                    else
+                    {
+                        if (usuario == null)
+                        {
+                            MessageBox.Show("Usuario no encontrado");
+                            return;
+                        }
 
-                    context.SaveChanges();
-
-                    MessageBox.Show("Cambios guardados correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
+                MessageBox.Show("Usuario actualizado correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los cambios: " + ex.Message);
             }
         }
 
-        private void Cancelar()
+        private bool CanGuardar(object parameter)
         {
-            // Limpiar los campos
-            Correo = string.Empty;
-            Telefono = string.Empty;
-            Direccion = string.Empty;
-            Contrasena = string.Empty;
-
-            // Notificar a la vista que los valores han cambiado
-            OnPropertyChanged(nameof(Correo));
-            OnPropertyChanged(nameof(Telefono));
-            OnPropertyChanged(nameof(Direccion));
-            OnPropertyChanged(nameof(Contrasena));
-
-            MessageBox.Show("Los campos han sido limpiados", "Cancelación", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Lógica de validación para determinar si se puede guardar
+            return !string.IsNullOrEmpty(NombreUsuario) && !string.IsNullOrEmpty(Email);
         }
-    }
 
+
+    }
 }
 

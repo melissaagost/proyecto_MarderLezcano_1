@@ -15,6 +15,7 @@
     </Window.Resources>
 
 
+
     <Grid>
 
 
@@ -58,6 +59,23 @@
                 </Button.Background>
             </Button>
 
+
+            <Button Content="       Editar perfil" 
+                    Command="{Binding ShowEditarPerfilCommand}" Margin="0,223,0,458"
+                    CommandParameter="{Binding IdUsuario}"
+                    FontFamily="Verdana"
+                    Foreground="#fffdf0"
+                    FontSize="18"
+                    BorderBrush="#fffdf0"
+                    BorderThickness="2"
+                    HorizontalAlignment="Center" Width="209" 
+>
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/editar-perfil.png" Stretch="Uniform" AlignmentX="Left"/>
+                </Button.Background>
+            </Button>
+
+
             <Button Content="Backup" 
                     Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,176,0,505"
                     FontFamily="Verdana"
@@ -72,26 +90,10 @@
                 </Button.Background>
             </Button>
 
-            
 
-            <Button Content="       Editar perfil" 
-                    Command="{Binding ShowEditarPerfilCommand}" Margin="0,274,0,407"
-                    FontFamily="Verdana"
-                    Foreground="#fffdf0"
-                    FontSize="18"
-                    BorderBrush="#fffdf0"
-                    BorderThickness="2"
-                    HorizontalAlignment="Center" Width="209" 
->
-
-
-                <Button.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/editar-perfil.png" Stretch="Uniform" AlignmentX="Left"/>
-                </Button.Background>
-            </Button>
-
-
-            <Button Margin="47,680,148,10" BorderBrush="Transparent" Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}">
+            <Button Margin="47,680,148,10" BorderBrush="Transparent" 
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}"
+                    Command="{Binding DataContext.ShowVerPerfilCommand, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/rol-sistemas.png"/>
                 </Button.Background>
@@ -99,7 +101,7 @@
 
             <!--opciones para rol MEDICO-->
             <Button Content="    Ver citas" 
-                    Command="{Binding ShowListadoCitasCommand}" Margin="0,323,0,358"
+                    Command="{Binding ShowListadoCitasCommand}" Margin="0,78,0,603"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"
@@ -113,7 +115,7 @@
             </Button>
 
             <Button Content="       Administrar Citas" 
-                    Command="{Binding ShowListadoCitasCommand}" Margin="0,421,0,260"
+                    Command="{Binding ShowListadoCitasCommand}" Margin="0,177,0,504"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="15"
@@ -128,7 +130,7 @@
 
 
             <Button Content="    Reportes clínicos" 
-                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,372,0,309"
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,128,0,553"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"
@@ -142,7 +144,9 @@
             </Button>
 
 
-            <Button Margin="47,680,148,10" BorderBrush="Transparent" Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Medico}">
+            <Button Margin="47,680,148,10" BorderBrush="Transparent" 
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Medico}"
+                    Command="{Binding DataContext.ShowVerPerfilCommand, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/rol-medico.png"/>
                 </Button.Background>
@@ -150,7 +154,7 @@
 
             <!--opciones para rol RECEPCIONISTA-->
             <Button Content="    Nueva Cita" 
-                    Command="{Binding ShowNuevaCitaCommand}" Margin="0,470,0,211"
+                    Command="{Binding ShowNuevaCitaCommand}" Margin="0,78,0,603"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"
@@ -163,22 +167,22 @@
                 </Button.Background>
             </Button>
             <Button Content="    Nuevo Paciente" 
-                    Command="{Binding ShowNuevoPacienteCommand}" Margin="0,519,0,162"
+                    Command="{Binding ShowNuevoPacienteCommand}" Margin="0,127,0,554"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"
                     BorderBrush="#fffdf0"
                     BorderThickness="2"
                     Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}" HorizontalAlignment="Center" Width="209" >
-                
-                
+
+
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/icono-add.png" Stretch="Uniform" AlignmentX="Left"/>
                 </Button.Background>
             </Button>
 
-            <Button Content="Reportes Recep" 
-                    Command="{Binding ShowReporteRecepcionistaCommand}" Margin="0,225,0,456"
+            <Button Content="Reportes" 
+                    Command="{Binding ShowReporteRecepcionistaCommand}" Margin="0,179,0,502"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"
@@ -192,15 +196,17 @@
             </Button>
 
 
-            <Button Margin="47,680,148,10" BorderBrush="Transparent" Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}">
+            <Button Margin="47,680,148,10" BorderBrush="Transparent" 
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Recepcionista}"
+                    Command="{Binding DataContext.ShowVerPerfilCommand, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/rol-recep.png"/>
                 </Button.Background>
             </Button>
 
             <!--opciones para rol GESTOR-->
-            <Button Content="    Reportes Gestor" 
-                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,568,0,113"
+            <Button Content="    Reportes" 
+                    Command="{Binding ShowNuevoUsuarioCommand}" Margin="0,78,0,603"
                     FontFamily="Verdana"
                     Foreground="#fffdf0"
                     FontSize="18"
@@ -213,7 +219,9 @@
                 </Button.Background>
             </Button>
 
-            <Button Margin="47,680,148,10" BorderBrush="Transparent" Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Gestor}">
+            <Button Margin="47,680,148,10" BorderBrush="Transparent" 
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Gestor}"
+                    Command="{Binding DataContext.ShowVerPerfilCommand, RelativeSource={RelativeSource AncestorType=Window}}" RenderTransformOrigin="1.588,0.571">
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/rol-gestor.png"/>
                 </Button.Background>

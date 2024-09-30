@@ -74,6 +74,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
 
         // DECLARACION DE VISTAS
         //GENERALES (PARA TODOS LOS USERS)
+        public RelayCommand ShowVerPerfilCommand { get; }
         public RelayCommand ShowEditarPerfilCommand { get; }
         //USUARIO
         public RelayCommand ShowNuevoUsuarioCommand { get; }
@@ -96,10 +97,13 @@ namespace proyecto_MarderLezcano.ViewModels.User
                 CloseCommand = new RelayCommand(OnClose);
 
             // Inicializamos las vistas en comandos
+            ShowVerPerfilCommand = new RelayCommand(ShowVerPerfil);
             ShowEditarPerfilCommand = new RelayCommand(ShowEditarPerfil);
-            //usuarios
+
+            //sistemas
             ShowNuevoUsuarioCommand = new RelayCommand(ShowNuevoUsuario);
             ShowListadoUsuariosCommand = new RelayCommand(ShowListadoUsuarios);
+
             //medico
 
             //recepcionista
@@ -118,9 +122,16 @@ namespace proyecto_MarderLezcano.ViewModels.User
         }
 
         //METODOS VISTAS GENERALES
+        private void ShowVerPerfil(object obj)
+        {
+            var nuevoUsuarioPage = new VerPerfil();
+            _frame.Navigate(nuevoUsuarioPage);
+        }
         private void ShowEditarPerfil(object obj)
         {
-            var nuevoUsuarioPage = new Perfil();
+            int idUsuario = (int)obj;
+
+            var nuevoUsuarioPage = new Perfil(idUsuario);
             _frame.Navigate(nuevoUsuarioPage);
         }
         // METODOS PARA MOSTRAR VISTAS USUARIO

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.Protobuf.Collections;
+using proyecto_MarderLezcano.ViewModels.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +16,12 @@ using System.Windows.Shapes;
 
 namespace proyecto_MarderLezcano.Views.User
 {
-    /// <summary>
-    /// Interaction logic for EditarPerfil.xaml
-    /// </summary>
-    public partial class EditarPerfil : Page
+    public partial class VerPerfil : Page
     {
-        public EditarPerfil()
+        public VerPerfil()
         {
             InitializeComponent();
+            this.DataContext = new VerPerfilVM();
         }
     }
 }

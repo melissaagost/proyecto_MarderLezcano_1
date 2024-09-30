@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using proyecto_MarderLezcano.Commands;
+using proyecto_MarderLezcano.Models;
 
 namespace proyecto_MarderLezcano.Views.User
 {
@@ -20,9 +23,34 @@ namespace proyecto_MarderLezcano.Views.User
     /// </summary>
     public partial class Perfil : Page
     {
-        public Perfil()
+        private int _idUsuario;
+
+        public Perfil(int idUsuario)
         {
             InitializeComponent();
+            _idUsuario = idUsuario;
+            CargarDatosUsuario(); // Cargar los datos del usuario al inicializar la página
+        }
+
+        private void CargarDatosUsuario()
+        {
+            using (var context = new ContextoBD())
+            {
+                var usuario = context.Usuario.FirstOrDefault(u => u.id_usuario == _idUsuario);
+
+                if (usuario != null)
+                {
+                    NombreUsuarioTextBox.Text = usuario.usuario;
+                    EmailTextBox.Text = usuario.correo;
+                    TelefonoTextBox.Text = usuario.telefono;
+                    DireccionTextBox.Text = usuario.direccion;
+                    ContraseñaTextBox.Text = usuario.contraseña;
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado");
+                }
+            }
         }
     }
 }

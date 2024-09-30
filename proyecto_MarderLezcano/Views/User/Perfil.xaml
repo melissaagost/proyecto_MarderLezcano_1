@@ -57,8 +57,9 @@
                 <!-- Nombre del usuario -->
                 <TextBlock Text="Nombre de Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,89,0,0" />
                 <TextBox Margin="99,110,478,374"
+                         x:Name="NombreUsuarioTextBox"
                          Background="LightGray"
-                         Text="{Binding Usuario}"
+                         Text="{Binding NombreUsuario}"
                          FontWeight="Bold"
                          FontFamily="Georgia"
                          FontSize="18"/>
@@ -66,8 +67,9 @@
                 <!-- Email del usuario -->
                 <TextBlock Text="Email" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,89,0,0" />
                 <TextBox Margin="377,110,200,376"
+                         x:Name="EmailTextBox"
                          Background="LightGray"
-                         Text="{Binding Correo}"
+                         Text="{Binding Email}"
                          FontStyle="Italic"
                          FontFamily="verdana"
                          FontSize="14"
@@ -76,6 +78,7 @@
                 <!-- Teléfono del usuario -->
                 <TextBlock Text="Telefono" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,158,0,0" />
                 <TextBox Margin="99,179,478,307"
+                         x:Name="TelefonoTextBox"
                          Background="LightGray"
                          Text="{Binding Telefono}"
                          FontStyle="Italic"
@@ -86,6 +89,7 @@
                 <!-- Dirección del usuario -->
                 <TextBlock Text="Direccion" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,161,0,0" />
                 <TextBox Margin="377,179,200,307"
+                         x:Name="DireccionTextBox"
                          Background="LightGray"
                          Text="{Binding Direccion}"
                          FontStyle="Italic"
@@ -96,8 +100,9 @@
                 <!-- Contraseña del usuario -->
                 <TextBlock Text="Contraseña" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,223,0,0" />
                 <TextBox Margin="99,244,478,242"
+                         x:Name="ContraseñaTextBox"
                              Background="LightGray"
-                             Text="{Binding Contrasena}"
+                             Text="{Binding Contraseña}"
                              FontStyle="Italic"
                              FontFamily="verdana"
                              FontSize="14"
