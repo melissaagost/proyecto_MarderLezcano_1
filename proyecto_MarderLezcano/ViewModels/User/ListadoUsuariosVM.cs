@@ -17,16 +17,35 @@ namespace proyecto_MarderLezcano.ViewModels.User
 {
     public class ListadoUsuariosVM : BaseViewModel
     {
-        public ObservableCollection<UsuarioM> UsuariosActivos { get; set; }
-        public ObservableCollection<UsuarioM> UsuariosInactivos { get; set; }
-        public ICommand EliminarUsuarioCommand { get; private set; }
+        private ObservableCollection<UsuarioM> _usuariosActivos;
+        private ObservableCollection<UsuarioM> _usuariosInactivos;
+        public ObservableCollection<UsuarioM> UsuariosActivos
+        {
+            get { return _usuariosActivos; }
+            set 
+            {
+                _usuariosActivos = value;
+                OnPropertyChanged(nameof(UsuariosActivos));
+            }
+        }
+        public ObservableCollection<UsuarioM> UsuariosInactivos
+        {
+            get { return _usuariosInactivos; }
+            set
+            {
+                _usuariosInactivos = value;
+                OnPropertyChanged(nameof(UsuariosInactivos));
+            }
+        }
+
+        public RelayCommand ToggleUsuarioStatusCommand { get; }
 
 
         public ListadoUsuariosVM()
         {
             CargarUsuariosInactivos();
             CargarUsuariosActivos();
-            EliminarUsuarioCommand = new EliminarUsuarioCommand(this);
+            ToggleUsuarioStatusCommand = new RelayCommand(ToggleUsuarioStatus);
 
         }
 
@@ -94,6 +113,10 @@ namespace proyecto_MarderLezcano.ViewModels.User
             }
         }
 
+        private void ToggleUsuarioStatus(object obj)
+        {
+            this.CambiarStatusUsuario((UsuarioM) obj);
+        }
 
         public void CambiarStatusUsuario(UsuarioM usuario)
         {
@@ -125,9 +148,6 @@ namespace proyecto_MarderLezcano.ViewModels.User
             CargarUsuariosInactivos();
             CargarUsuariosActivos();
         }
-
-
-
     }
 }
 

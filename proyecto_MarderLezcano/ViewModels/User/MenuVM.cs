@@ -129,9 +129,9 @@ namespace proyecto_MarderLezcano.ViewModels.User
         }
         private void ShowEditarPerfil(object obj)
         {
-            int idUsuario = (int)obj;
+            //int idUsuario = (int)obj;
 
-            var nuevoUsuarioPage = new Perfil(idUsuario);
+            var nuevoUsuarioPage = new Perfil(this.CurrentUser.id_usuario);
             _frame.Navigate(nuevoUsuarioPage);
         }
         // METODOS PARA MOSTRAR VISTAS USUARIO

@@ -10,7 +10,7 @@
         >
 
     <Page.DataContext>
-        <vm:ListadoCitasVM/>
+        <vm:ListadoUsuariosVM/>
     </Page.DataContext>
 
     <Grid>
@@ -82,7 +82,10 @@
                                 <DataGridTemplateColumn Header="Acción" Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Dar de Baja" Command="{Binding EliminarUsuarioCommand}" CommandParameter="{Binding}"  />
+                                            <Button 
+                                                Content="Dar de Baja"
+                                                Command="{Binding DataContext.ToggleUsuarioStatusCommand, RelativeSource={RelativeSource AncestorType=Page}}" 
+                                                CommandParameter="{Binding}"  />
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -117,7 +120,10 @@
                                 <DataGridTemplateColumn Header="Acción" Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Dar de Alta" Command="{Binding EliminarUsuarioCommand}" CommandParameter="{Binding}" />
+                                            <Button 
+                                                Content="Dar de Alta"
+                                                Command="{Binding DataContext.ToggleUsuarioStatusCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                CommandParameter="{Binding}" />
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
