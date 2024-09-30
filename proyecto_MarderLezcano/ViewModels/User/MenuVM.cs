@@ -120,7 +120,7 @@ namespace proyecto_MarderLezcano.ViewModels.User
         //METODOS VISTAS GENERALES
         private void ShowEditarPerfil(object obj)
         {
-            var nuevoUsuarioPage = new EditarPerfil();
+            var nuevoUsuarioPage = new Perfil();
             _frame.Navigate(nuevoUsuarioPage);
         }
         // METODOS PARA MOSTRAR VISTAS USUARIO

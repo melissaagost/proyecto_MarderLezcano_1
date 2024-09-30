@@ -8,8 +8,11 @@
       mc:Ignorable="d" 
       Width="1200" Height="650"
       Title="Perfil">
+    
+    <Page.DataContext>
+        <vm:PerfilVM/>
+    </Page.DataContext>
 
-  
 
     <Grid>
 
@@ -25,7 +28,7 @@
 
             <!-- Botón de minimizar -->
 
-           
+
         </StackPanel>
 
         <Border x:Name="BEditarPerfil" Background="#fffdf0" 
@@ -39,80 +42,116 @@
             <Grid Margin="-84,8,-186,-62">
 
                 <!--titulo-->
-                <Border Background="#60a67c" CornerRadius="15" Height="36" VerticalAlignment="Top" Margin="308,0,382,0">
-                    <TextBlock Text="Perfil"
+                <Border Background="#60a67c" CornerRadius="15" Height="36" VerticalAlignment="Top" Margin="284,0,339,0">
+                    <TextBlock Text=" Editar Perfil"
                                FontFamily="Georgia"
                                FontSize="27" 
                                FontWeight="Bold" 
                                Foreground="#fffdf0" 
                                VerticalAlignment="Center"
-                               HorizontalAlignment="Center"/>
+                               HorizontalAlignment="Left" RenderTransformOrigin="0.981,0.467" Margin="10,0,0,0"/>
                 </Border>
 
-                <!--foto de perfil-->
-                <Image Source="/assets/imagenes/pfp.png" Margin="85,72,520,245"></Image>
+
 
                 <!-- Nombre del usuario -->
-                <TextBlock Text="Nombre de Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,89,0,0" />
-                <TextBlock Margin="325,110,252,374"
+                <TextBlock Text="Nombre de Usuario" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,89,0,0" />
+                <TextBox Margin="99,110,478,374"
                          Background="LightGray"
-                         Text="{Binding Usuario.Nombre}"
+                         Text="{Binding Usuario}"
                          FontWeight="Bold"
                          FontFamily="Georgia"
                          FontSize="18"/>
 
                 <!-- Email del usuario -->
-                <TextBlock Text="Email" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,163,0,0" />
-                <TextBlock Margin="325,184,252,302"
+                <TextBlock Text="Email" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,89,0,0" />
+                <TextBox Margin="377,110,200,376"
                          Background="LightGray"
-                         Text="{Binding Usuario.Email}"
+                         Text="{Binding Correo}"
                          FontStyle="Italic"
                          FontFamily="verdana"
                          FontSize="14"
                          FontWeight="ExtraLight"/>
 
                 <!-- Teléfono del usuario -->
-                <TextBlock Text="Telefono" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,233,0,0" />
-                <TextBlock Margin="325,254,252,232"
+                <TextBlock Text="Telefono" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,158,0,0" />
+                <TextBox Margin="99,179,478,307"
                          Background="LightGray"
-                         Text="{Binding Usuario.Telefono}"
+                         Text="{Binding Telefono}"
                          FontStyle="Italic"
                          FontFamily="verdana"
                          FontSize="14"
                          FontWeight="ExtraLight"/>
 
                 <!-- Dirección del usuario -->
-                <TextBlock Text="Direccion" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,305,0,0" />
-                <TextBlock Margin="325,326,252,160"
+                <TextBlock Text="Direccion" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,161,0,0" />
+                <TextBox Margin="377,179,200,307"
                          Background="LightGray"
-                         Text="{Binding Usuario.Direccion}"
+                         Text="{Binding Direccion}"
                          FontStyle="Italic"
                          FontFamily="verdana"
                          FontSize="14"
                          FontWeight="ExtraLight"/>
 
-                <!--botnes agendar/cancelar-->
-                <Button x:Name="BEditar" Content="Editar"
-        Command="{Binding }"
-        Width="88" Height="28" 
-        Canvas.Left="155" Canvas.Top="458"
-        FontSize="15"
-        FontFamily="Georgia"
-        FontWeight="bold"
-        Background="#60a67c"
-        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="152,272,0,0">
+                <!-- Contraseña del usuario -->
+                <TextBlock Text="Contraseña" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,223,0,0" />
+                <TextBox Margin="99,244,478,242"
+                             Background="LightGray"
+                             Text="{Binding Contrasena}"
+                             FontStyle="Italic"
+                             FontFamily="verdana"
+                             FontSize="14"
+                             FontWeight="ExtraLight"/>
+
+                <!--guardar / cancelar-->
+                <Button x:Name="BEditar" Content="Guardar"
+                        Command="{Binding GuardarCommand}" 
+                        Width="133" Height="52" 
+                        Canvas.Left="155" Canvas.Top="458"
+                        FontSize="20"
+                        FontFamily="Georgia"
+                        FontWeight="bold"
+                        Background="#60a67c"
+                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="217,387,0,0">
+
+
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
-            BorderBrush="{TemplateBinding BorderBrush}" 
-            CornerRadius="20" 
-            Padding="{TemplateBinding Padding}">
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="20" 
+                                    Padding="{TemplateBinding Padding}">
                                 <ContentPresenter HorizontalAlignment="Center" 
-                          VerticalAlignment="Center"/>
+                                                  VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+
+                <Button x:Name="BECancelar" Content="Cancelar"
+                         Command="{Binding CancelarCommand}"
+                        Width="132" Height="52" 
+                        Canvas.Left="155" Canvas.Top="458"
+                        FontSize="20"
+                        FontFamily="Georgia"
+                        FontWeight="bold"
+                        Background="#ff5757"
+                        Foreground="#fffdf0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,387,0,0">
+
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    CornerRadius="20" 
+                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
 
 
 

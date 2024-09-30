@@ -403,8 +403,8 @@ namespace proyecto_MarderLezcano.ViewModels.User
                         return;
                     }
 
-                // Validación de Correo
-                if (string.IsNullOrWhiteSpace(this.correo))
+                    // Validación de Correo
+                    if (string.IsNullOrWhiteSpace(this.correo))
                     {
                         MessageBox.Show("El correo no puede estar en blanco.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;

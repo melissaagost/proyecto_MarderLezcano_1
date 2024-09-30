@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_MarderLezcano.ViewModels.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,13 @@ using System.Windows.Shapes;
 
 namespace proyecto_MarderLezcano.Views.User
 {
-    /// <summary>
-    /// Interaction logic for ListadoUsuarios.xaml
-    /// </summary>
+   
     public partial class ListadoUsuarios : Page
     {
         public ListadoUsuarios()
         {
             InitializeComponent();
+            this.DataContext = new ListadoUsuariosVM();
         }
     }
 }

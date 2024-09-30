@@ -134,7 +134,7 @@
                     FontSize="18"
                     BorderBrush="#fffdf0"
                     BorderThickness="2"
-                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Sistemas}" HorizontalAlignment="Center" Width="209" 
+                    Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter=Medico}" HorizontalAlignment="Center" Width="209" 
 >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/assets/imagenes/reporte-clinico.png" Stretch="Uniform" AlignmentX="Left"/>
