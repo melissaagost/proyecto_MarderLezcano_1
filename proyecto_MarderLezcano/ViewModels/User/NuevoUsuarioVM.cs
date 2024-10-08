@@ -193,7 +193,6 @@ namespace proyecto_MarderLezcano.ViewModels.User
         public RelayCommand GoBackCommand { get; }
         public RelayCommand CloseCommand { get; }
         public RelayCommand CrearUsuarioCommand { get; }
-
         public RelayCommand CancelarCommand { get; }
 
 

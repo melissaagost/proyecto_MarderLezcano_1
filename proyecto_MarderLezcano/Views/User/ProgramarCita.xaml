@@ -4,10 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
+        xmlns:h="clr-namespace:proyecto_MarderLezcano.Helpers"
         xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
         mc:Ignorable="d"
         Title="ProgramarCita" 
         Width="1200" Height="650">
+
+    <Page.Resources>
+        <h:StringNotEmptyConverter x:Key="StringNotEmptyConverter"/>
+        <h:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
+
 
     <Page.DataContext>
         <vm:ProgramarCitaVM />
@@ -58,6 +65,7 @@
                          x:Name="DniPacienteTB" 
                          FontFamily="Verdana" 
                          FontSize="15"
+                         Text="{Binding DniPaciente, UpdateSourceTrigger=PropertyChanged}"
                          Padding="5" 
                          Height="30" 
                          Width="176"
@@ -67,7 +75,8 @@
                     Width="87" Height="30" 
                     FontFamily="Verdana" 
                     FontSize="10"
-                    Command="{Binding BuscarPacientePorDniCommand}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    Command="{Binding BuscarPacientePorDniCommand}" 
+                    IsEnabled="{Binding Path=DniPaciente, Converter={StaticResource StringNotEmptyConverter}}"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <!-- ComboBox para seleccionar el médico -->
                 <TextBlock Text="Seleccione el médico" Foreground="Gray" Canvas.Top="65" Canvas.Left="400"/>
@@ -76,9 +85,9 @@
                       Width="279" 
                       FontFamily="Verdana" 
                       FontSize="15" 
-                      ItemsSource="{Binding ListaMedicos}"
                       DisplayMemberPath="NombreCompleto"
-                      SelectedItem="{Binding MedicoSeleccionado}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30"/>
+                      ItemsSource="{Binding ListaMedicos}" 
+                      SelectedItem="{Binding MedicoSeleccionado}"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="30"/>
 
                 <!-- Seleccionar Fecha -->
                 <TextBlock Text="Seleccione la fecha" Foreground="Gray" Canvas.Top="141" Canvas.Left="91"/>
@@ -86,18 +95,9 @@
                         x:Name="FechaCitaDP" 
                         FontFamily="Verdana" 
                         FontSize="10" 
-                        SelectedDate="{Binding FechaSeleccionada}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="279" Height="30"/>
+                        SelectedDate="{Binding FechaSeleccionada, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="279" Height="30"/>
 
-                <!-- Seleccionar Hora -->
-                <TextBlock Text="Seleccione la hora" Foreground="Gray" Canvas.Top="141" Canvas.Left="400"/>
-                <ComboBox Canvas.Top="162" Canvas.Left="400" 
-                      x:Name="HoraCitaCB" 
-                      Width="279" 
-                      FontFamily="Verdana" 
-                      FontSize="15" 
-                      ItemsSource="{Binding ListaHoras}"
-                      SelectedItem="{Binding HoraSeleccionada}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
-
+                
                 <!-- Etiqueta y TextBox para Motivo -->
                 <TextBlock Text="Motivo" Foreground="Gray" Canvas.Top="214" Canvas.Left="91" 
                             HorizontalAlignment="Left" VerticalAlignment="Top" />
@@ -109,17 +109,18 @@
                          Padding="5" 
                          Height="70" 
                          Width="590"
+                         Text="{Binding Motivo, UpdateSourceTrigger=PropertyChanged}"
                          TextWrapping="Wrap" 
                          AcceptsReturn="True" 
                          MaxLength="300"
                          VerticalScrollBarVisibility="Auto" 
                          HorizontalAlignment="Center" 
-                         VerticalAlignment="Top" TextChanged="MotivoTB_TextChanged"/>
+                         VerticalAlignment="Top" />
 
                 <!--botnes agendar/cancelar-->
                 <Button x:Name="BAgendar" Content="Agendar"
-                        Command="{Binding AgendarCommand}"
-                        Width="194" Height="50" 
+                Command="{Binding AgendarCommand}" 
+                IsEnabled="{Binding Path=PuedeAgendar}"
                         Canvas.Left="176" Canvas.Top="335"
                         FontSize="25"
                         FontFamily="Georgia"

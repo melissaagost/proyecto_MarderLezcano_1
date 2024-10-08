@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:proyecto_MarderLezcano.Views.User"
-      xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
+        xmlns:vm="clr-namespace:proyecto_MarderLezcano.ViewModels.User"
       mc:Ignorable="d"
       Title="NuevoPaciente" 
       Width="1200" Height="650">
@@ -54,6 +54,8 @@
                 <TextBlock Text="Nombre/s" Foreground="Gray" Canvas.Top="58" Canvas.Left="42" HorizontalAlignment="Left" VerticalAlignment="Top" />
                 <TextBox Canvas.Top="81" 
                          x:Name="NombreTB" 
+                         Text="{Binding nombre, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+
                          FontFamily="Verdana" 
                          FontSize="15"
                          Padding="5" 
@@ -64,6 +66,8 @@
                 <TextBlock Text="Apellido/s" Foreground="Gray" Canvas.Left="268" Canvas.Top="58" />
                 <TextBox Canvas.Left="268" Canvas.Top="81" 
                          x:Name="ApellidoTB" 
+                         Text="{Binding apellido, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+
                          FontFamily="Verdana" 
                          FontSize="15"
                          Padding="5" 
@@ -74,6 +78,8 @@
                 <TextBlock Text="DNI" Foreground="Gray" Canvas.Left="493" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 <TextBox Canvas.Left="492" Canvas.Top="81" 
                          x:Name="DNITB" 
+                         Text="{Binding dni, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+
                          FontFamily="Verdana" 
                          FontSize="15"
                          Padding="5" 
@@ -84,16 +90,18 @@
                 <TextBlock Text="Teléfono" Foreground="Gray" Canvas.Top="299" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 <TextBox Canvas.Top="320" 
                          x:Name="TelefonoTB" 
+                         Text="{Binding telefono, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          FontFamily="Verdana" 
                          FontSize="15"
                          Padding="5" 
                          Height="34" 
-                         Width="190" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="TelefonoTB_TextChanged" Text=""/>
+                         Width="190" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Center"  />
 
                 <!-- Etiqueta y TextBox para Edad -->
                 <TextBlock Text="Edad" Foreground="Gray" Canvas.Left="43" Canvas.Top="139" />
                 <TextBox Canvas.Left="42" Canvas.Top="160" 
                          x:Name="EdadTB" 
+                         Text="{Binding edad, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          FontFamily="Verdana" 
                          FontSize="15"
                          Padding="5" 
@@ -106,7 +114,9 @@
                             x:Name="FechaNacimientoDP"
                             Width="190"
                             Height="34"
-                            SelectedDate="{Binding FechaNacimiento}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                            SelectedDateFormat="Short"
+                            SelectedDate="{Binding fecha_nacimiento, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                 <!-- Etiqueta y ComboBox para Género -->
                 <TextBlock Text="Género" Foreground="Gray" Canvas.Top="139" Canvas.Left="495" />
@@ -123,6 +133,7 @@
                 <TextBlock Text="Dirección" Foreground="Gray" Canvas.Top="216" Canvas.Left="42" />
                 <TextBox Canvas.Top="237" 
                          x:Name="DireccionTB" 
+                         Text="{Binding direccion, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          FontFamily="Verdana" 
                          FontSize="15"
                          Padding="5" 
@@ -133,6 +144,7 @@
                 <TextBlock Text="Correo" Foreground="Gray" Canvas.Top="299" Canvas.Left="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <TextBox Canvas.Top="320" 
                  x:Name="CorreoTB" 
+                 Text="{Binding correo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                  FontFamily="Verdana" 
                  FontSize="15"
                  Padding="5" 
@@ -145,9 +157,9 @@
                           Canvas.Top="237" 
                           Width="190" 
                           Height="34"
-                          ItemsSource="{Binding ListaProvincias}"
-                          SelectedItem="{Binding ProvinciaSeleccionada}"
-                          DisplayMemberPath="Nombre"
+                          ItemsSource="{Binding ListaProvincias}" 
+                            DisplayMemberPath="nombre" 
+                            SelectedItem="{Binding ProvinciaSeleccionada}"
                           SelectedValuePath="id_provincia"
                           FontFamily="Verdana"
                           FontSize="15" Canvas.Left="268" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -158,9 +170,8 @@
                           Canvas.Left="493" Canvas.Top="320" 
                           Width="187" 
                           Height="34"
-                          ItemsSource="{Binding ListaCiudades}"
-                          SelectedItem="{Binding CiudadSeleccionada}"
-                          DisplayMemberPath="Nombre"
+                          ItemsSource="{Binding ListaCiudades}" DisplayMemberPath="nombre" 
+SelectedItem="{Binding CiudadSeleccionada}" 
                           SelectedValuePath="id_ciudad"
                           FontFamily="Verdana"
                           FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -172,8 +183,8 @@
                           Width="187" 
                           Height="34"
                           ItemsSource="{Binding ListaObrasSociales}"
-                          SelectedItem="{Binding ObraSocialSeleccionada}"
-                          DisplayMemberPath="Nombre"
+                            SelectedItem="{Binding ObraSeleccionado}"
+                            DisplayMemberPath="nombre"
                           SelectedValuePath="id_obra_social"
                           FontFamily="Verdana"
                           FontSize="15" Canvas.Left="493" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -188,7 +199,7 @@
 
                 <!--botnes agendar/cancelar-->
                 <Button x:Name="BAgendar" Content="Agendar"
-                        Command="{Binding AgendarCommand}"
+                Command="{Binding CrearPacienteCommand}"
                         Width="194" Height="50" 
                         Canvas.Left="155" Canvas.Top="458"
                         FontSize="25"
@@ -210,6 +221,7 @@
                 </Button>
 
                 <Button x:Name="BCancelar1" Content="Cancelar"
+                Command="{Binding CancelarCommand}"
                 Width="193" Height="50" 
                 Canvas.Right="48" Canvas.Top="458"
                 FontSize="25"

@@ -49,7 +49,6 @@
 
   <ItemGroup>
     <Folder Include="Fuentes\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Utilidades\" />
   </ItemGroup>
 

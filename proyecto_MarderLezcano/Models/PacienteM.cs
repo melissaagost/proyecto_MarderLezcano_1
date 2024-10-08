@@ -8,14 +8,14 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace proyecto_MarderLezcano.Models
 {
-    class PacienteM
+    public class PacienteM
     {
         [Key]
         public int id_paciente { get; set; }
         public int dni { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public Date fecha_nacimiento { get; set; }
+        public DateTime fecha_nacimiento { get; set; }
         public string correo { get; set; }
         public string telefono { get; set; }
         public string direccion { get; set; }

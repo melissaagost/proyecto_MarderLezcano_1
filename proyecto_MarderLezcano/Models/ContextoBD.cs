@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using proyecto_MarderLezcano.ViewModels.User;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
@@ -11,12 +12,17 @@ namespace proyecto_MarderLezcano.Models
 {
     class ContextoBD : DbContext
     {
+
+        public DbSet<MedicoM> Medico { get; set; }
+        public DbSet<ObrasocialM> ObraSocial { get; set; }
+
         public DbSet<CitaM> Cita { get; set; }
         //public DbSet<CiudadM> Ciudades { get; set; }
         //public DbSet<PerfilM> Perfiles { get; set; } // Propiedad para la tabla Perfiles
 
         public DbSet<PerfilM> Perfil { get; set; } // Propiedad para la tabla Perfiles
 
+        public DbSet<PacienteM> Paciente { get; set; } // Propiedad para la tabla usuarios
 
         public DbSet<UsuarioM> Usuario { get; set; } // Propiedad para la tabla usuarios
         public DbSet<ProvinciaM> Provincia { get; set; } // Definir el DbSet de ProvinciaM

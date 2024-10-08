@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace proyecto_MarderLezcano.Models
 {
-    class MedicoM
+     public class MedicoM
     {
         [Key]
         public int id_medico { get; set; }
